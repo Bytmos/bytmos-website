@@ -1,0 +1,291 @@
+@import "partials/_colors";
+@import "partials/_vars";
+
+.bs__navbar {
+    background-color: var(--bs-blue) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    .bs__logo {
+        width: 200px !important;
+    }
+
+    .bs__playstore_icon {
+        width: 150px !important;
+    }
+}
+
+.bs__app_home {
+    width: 300px !important;
+    @media screen and (max-width: 768px) {
+        width: 200px !important;
+    }
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+.bs__btn {
+    box-shadow: none !important;
+    border-color: var(--bs-blue) !important;
+    &.blue {
+        @include blueBtn;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: medium !important;
+    }
+}
+
+.bs__bg_light {
+    @include lightBg;
+}
+
+.bs__app_slide_image {
+    width: 300px !important;
+}
+
+.bs__chat_illustration {
+    width: 300px !important;
+}
+
+.text-purple {
+    color: var(--bs-purple) !important;
+}
+
+.bs__chat_globe {
+    width: 300px !important;
+}
+
+.bs__footer {
+    background-color: var(--bs-footer) !important;
+    color: var(--bs-white) !important;
+    a {
+        color: var(--bs-white) !important;
+        text-decoration: none !important;
+    }
+
+    .footer_items {
+        .list-group-item {
+            background-color: transparent !important;
+            color: var(--bs-white) !important;
+            border: 0 !important;
+        }
+        .list-group-item:not(:last-child) {
+            margin-bottom: 1.5rem !important;
+        }
+    }
+}
+
+.bs__app_intro_slide_indicator {
+    [data-bs-target] {
+        border: 1px solid var(--bs-blue) !important;
+        border-radius: 100px !important;
+        padding: 5px;
+        padding-left: 6px;
+        padding-right: 6px;
+        width: fit-content !important;
+
+        &.active {
+            background-color: var(--bs-blue) !important;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: fit-content !important;
+        transform: rotate(90deg) !important;
+        right: -72px !important;
+        left: initial !important;
+
+        bottom: calc(100% - 50%);
+    }
+}
+
+.form-control {
+    background-color: var(--bs-input-bg) !important;
+    border-radius: 10px !important;
+    height: 72px !important;
+    border: 0 !important;
+    &.longText {
+        height: initial !important;
+    }
+}
+
+.form-control + .form-control {
+    margin-top: 1.5rem !important;
+}
+
+.bs__contact_icons_item {
+    padding: 10px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 100% !important;
+    &:not(.howItworks) {
+        border: 0.5px solid var(--bs-blue) !important;
+    }
+
+    &.fb {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .bs__contact_icons {
+        color: var(--bs-blue) !important;
+        font-size: 24px !important;
+    }
+}
+
+.bs__contact_icons_item + .bs__contact_icons_item {
+    margin-left: 0.5rem !important;
+}
+.text-blue {
+    color: var(--bs-blue) !important;
+}
+
+.bs__aboutus_badge {
+    padding: 10px !important;
+    border-radius: 10px;
+    background-color: var(--bs-light-blue) !important;
+    color: var(--bs-blue) !important;
+}
+
+.bs__aboutus_badge + * {
+    margin-top: 1.5rem !important;
+}
+
+.mb-1_5rem {
+    margin-bottom: 1.5rem !important;
+}
+
+.bs__values_card {
+    border: 0 !important;
+
+    .header_icon {
+        padding: 10px !important;
+        padding-left: 13px !important;
+        padding-right: 13px !important;
+        border-radius: 50px !important;
+        background-color: var(--bs-icon-bg) !important;
+        color: var(--bs-blue) !important;
+        img {
+            width: 25px !important;
+            height: 25px !important;
+        }
+    }
+    .header_icon + * {
+        margin-top: 1.5rem !important;
+    }
+}
+
+.bs__values_cols {
+    border: 0.5px solid #eee !important;
+}
+
+section + section.my-5 {
+    margin-top: 5.5rem !important;
+}
+
+@media screen and (max-width: 768px) {
+    .mq-text-center {
+        text-align: center !important;
+    }
+
+    .mq-text-sm {
+        font-size: medium !important;
+    }
+}
+
+.carousel-item {
+    position: relative !important;
+    .carousel-item-caption {
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        @media screen and (min-width: 768px) {
+            padding-left: 50px;
+            &:not(.align-right) {
+                padding-right: 50px;
+            }
+        }
+
+        .caption_heading {
+            font-weight: 700 !important;
+            margin-top: 1.5rem !important;
+            color: black !important;
+            @media screen and (max-width: 360px) {
+                margin-top: 0.5rem !important;
+                font-size: medium !important;
+                width: 200px !important;
+            }
+            &.align-right {
+                margin-left: auto !important;
+                margin-right: 0 !important;
+                @media screen and (min-width: 992px) {
+                    padding-left: 8rem !important;
+                }
+            }
+        }
+
+        .caption_text {
+            @media screen and (max-width: 360px) {
+                font-size: 12px !important;
+                width: 200px !important;
+            }
+            &.align-right {
+                margin-left: auto !important;
+                margin-right: 0 !important;
+
+                @media screen and (min-width: 992px) {
+                    padding-left: 8rem !important;
+                }
+            }
+        }
+    }
+}
+
+.pos-relative {
+    position: relative !important;
+}
+
+.bs__become_partner_col_right {
+    @media screen and (min-width: 768px) {
+        border-top-right-radius: 23px;
+        border-bottom-right-radius: 23px;
+    }
+}
+.bs__become_partner_col_left {
+    background-color: #82993e !important;
+    @media screen and (min-width: 768px) {
+        border-top-left-radius: 23px;
+        border-bottom-left-radius: 23px;
+    }
+}
+
+.bs__how_it_works {
+    padding: 1.5rem !important;
+    background-color: var(--bs-skyblue) !important;
+    color: black !important;
+
+    @media screen and (min-width: 768px) {
+        border-radius: 20px !important;
+        margin-bottom: 5.5rem !important;
+    }
+
+    .bs_how_it_works_icon {
+        font-size: 28px !important;
+    }
+
+    .howItworks_items + .howItworks_items {
+        margin-top: 2.5rem !important;
+    }
+
+    .howItworks_icon {
+        width: 32px !important;
+    }
+}

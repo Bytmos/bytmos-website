@@ -1,0 +1,60 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if is_paginated %}
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">{{ num }}</span>
+                    </li>
+                {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+</nav>
+<style>
+    /* Style for normal pagination links */
+    .pagination .page-link {
+        color: #00709e;
+    }
+    
+    /* Style for hover state */
+    .pagination .page-link:hover {
+        color: white;
+        background-color: #00709e;
+        border-color: #00709e;
+    }
+    
+    /* Style for active page */
+    .pagination .page-item.active .page-link {
+        background-color: #00709e;
+        border-color: #00709e;
+        color: white;
+    }
+    
+    /* Style for disabled items (if you have them) */
+    .pagination .page-item.disabled .page-link {
+        color: #6c757d;
+    }
+</style>

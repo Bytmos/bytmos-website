@@ -1,0 +1,40 @@
+{% extends "personal/layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Blog Post | Delete{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<header class="masthead">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Delete Post</h1>
+          <span class="subheading">Are you sure you want to delete the post {{ object.title }}?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- Render your registration form here -->
+        <form method="post">
+          {% csrf_token %}
+          <div class="crispy_form">{{ form|crispy }}</div>
+          <div class="d-grid gap-2">
+              <button class="btn btn-outline-danger" style="background-color: red;" type="submit">Yes, Delete</button>
+              <a class="btn btn-outline-secondary" href="{% url 'post_detail' object.id %}">Cancel</a>
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

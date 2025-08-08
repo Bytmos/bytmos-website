@@ -1,0 +1,29 @@
+{% extends 'users/layout.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Blog | Sign up{% endblock %}
+
+{% block content %}
+    <body>
+        <div class="signup-form">
+            <form method="POST">
+                   <p style="color:red">{{ message }}</p>
+                <h2>Sign Up</h2>
+                <p>Please fill in this form to sign up!</p>
+                <hr>
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    {{form.media}}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                </div>
+
+                <div class="clearfix">
+                    <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                </div>
+
+            </form>
+            <div class="hint-text">Already have an account? <a class="hint-text" href="{% url 'login' %}">Log in here</a></div>
+        </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "personal/layout.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Blog | Profile{% endblock %}
+
+{% block content %}
+<header class="masthead" style="background-image: url('{% static 'users/img/register-bg.jpg' %}');">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Profile</h1>
+            <span class="subheading">Start Contributing to the Blog!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img style="border-radius: 50%; width: 100px; height:100px;" src="{{ user.profile.image.url }}"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h5>Marie Horwitz</h5>
+              <p>Web Designer</p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h2>{{ user.username }}</h2>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{ user.email }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted">123 456 789</p>
+                  </div>
+                </div>
+
+                <form method="Post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="crispy_form">{{ u_form|crispy }}</div>
+                    <div class="crispy_form">{{ u_profile|crispy }}</div>
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="submit">Update</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

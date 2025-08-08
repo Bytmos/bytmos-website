@@ -1,0 +1,686 @@
+{% extends 'personal/layout.html' %}
+{% load static %}
+{% load social_share %}
+
+{% block title %}Blog | {{most_recent_post.title}}{% endblock %}
+{% block og-caption %}{{ most_recent_post.body }}{% endblock %}
+{% block og-description %}Shared by {{ most_recent_post.author}}{% endblock %}
+{% block og-image %}{{ most_recent_post.img_url}}{% endblock %}
+{% block tw-image %}{{ most_recent_post.img_url}}{% endblock %}
+
+{% block extra_css_files %}
+<style>
+  /* ====== Main Layout ====== */
+  .blog-container {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .main-content {
+    flex: 1;
+    min-width: 0; /* Prevent flex overflow */
+  }
+
+  /* ====== Shared Article Styles ====== */
+  .featured-article,
+  .article-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    background: white;
+    margin-bottom: 3rem;
+  }
+
+  .featured-article:hover,
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 112, 158, 0.15);
+  }
+
+  .featured-article-image,
+  .article-card-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-image,
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .featured-article:hover .featured-image,
+  .article-card:hover .card-image {
+    transform: scale(1.05);
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+    z-index: 1;
+  }
+
+  .article-category {
+    position: absolute;
+    background: #00709e;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: 1.25rem;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  .article-meta i {
+    margin-right: 0.5rem;
+    color: #94a3b8;
+  }
+
+  .article-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .article-title a:hover {
+    color: #00709e;
+  }
+
+  .article-excerpt {
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #00709e;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .read-more-btn:hover {
+    color: #005a82;
+    gap: 1rem;
+  }
+
+  .read-more-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .read-more-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  .article-stats {
+    color: #94a3b8;
+  }
+
+  /* ====== Featured Article Specific Styles ====== */
+  .featured-article {
+    margin-top: 6rem;
+  }
+
+  .featured-article-image {
+    height: 400px;
+  }
+
+  .article-category.featured {
+    bottom: 30px;
+    left: 30px;
+  }
+
+  .featured-article-content {
+    padding: 2.5rem;
+  }
+
+  .featured-article .article-meta {
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-article .article-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .featured-article .article-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .featured-article .article-excerpt {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ====== Article Grid Specific Styles ====== */
+  .article-grid {
+    margin: 4rem 0;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .article-card-image {
+    height: 220px;
+  }
+
+  .article-category.grid {
+    top: 20px;
+    right: 20px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .article-card-content {
+    padding: 1.75rem;
+  }
+
+  .article-card .article-meta {
+    margin-bottom: 1rem;
+  }
+
+  .article-card .article-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .article-card .article-excerpt {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ====== Right Sidebar Styles ====== */
+  .right-sidebar {
+    position: sticky;
+    top: 2rem;
+    width: 350px;
+    height: fit-content;
+    flex-shrink: 0;
+  }
+
+ .sidebar-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    background: white;
+    margin-bottom: 2.5rem;
+    margin-top: 4rem;
+    height: 300px; /* Reduced from 400px */
+}
+
+  .sidebar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 112, 158, 0.12);
+  }
+
+  .sidebar-card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .sidebar-featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .sidebar-card:hover .sidebar-featured-image {
+    transform: scale(1.05);
+  }
+
+  .sidebar-category {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #7c3aed;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+  }
+
+  .sidebar-card-body {
+    padding: 1.75rem; 
+  }
+
+  .sidebar-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .sidebar-excerpt {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Sidebar Sections */
+  .sidebar-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .sidebar-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar-heading i {
+    color: #7c3aed;
+    font-size: 1.1rem;
+  }
+
+  /* Recent Posts */
+  .recent-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .recent-post-item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .recent-post-item:hover {
+    background: rgba(0, 112, 158, 0.05);
+  }
+
+  .recent-post-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .recent-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .recent-post-item:hover .recent-post-image img {
+    transform: scale(1.05);
+  }
+
+  .recent-post-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .recent-post-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+
+  .recent-post-item:hover .recent-post-title {
+    color: #00709e;
+  }
+
+  .recent-post-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  /* Categories */
+  .categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .category-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: #475569;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: white;
+    border: 1px solid #e2e8f0;
+  }
+
+  .category-item:hover {
+    background: #00709e;
+    color: white;
+    transform: translateX(5px);
+    border-color: #00709e;
+  }
+
+  .category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 112, 158, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .category-item:hover .category-icon {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .category-icon i {
+    color: #00709e;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .category-item:hover .category-icon i {
+    color: white;
+  }
+
+  /* ====== Responsive Adjustments ====== */
+  @media (max-width: 1200px) {
+    .featured-article-image {
+      height: 350px;
+    }
+    
+    .featured-article .article-title {
+      font-size: 2rem;
+    }
+    
+    .featured-article .article-subtitle {
+      font-size: 1.3rem;
+    }
+    
+    .grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .right-sidebar {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .blog-container {
+      flex-direction: column;
+    }
+    
+    .right-sidebar {
+      width: 100%;
+      position: static;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    .sidebar-card {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .featured-article-image {
+      height: 300px;
+    }
+    
+    .featured-article-content {
+      padding: 2rem;
+    }
+    
+    .featured-article .article-title {
+      font-size: 1.8rem;
+    }
+    
+    .grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .article-card-image {
+      height: 200px;
+    }
+    
+    .article-card-content {
+      padding: 1.5rem;
+    }
+    
+    .recent-post-item {
+      gap: 1rem;
+      padding: 0.75rem 0;
+    }
+    
+    .recent-post-image {
+      width: 70px;
+      height: 70px;
+    }
+    
+    .category-item {
+      padding: 0.6rem 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .featured-article-image {
+      height: 250px;
+    }
+    
+    .featured-article .article-meta,
+    .article-card .article-meta {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .featured-article .article-footer,
+    .article-card .article-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .sidebar-card-image {
+      height: 180px;
+    }
+    
+    .sidebar-card-body {
+      padding: 1.5rem;
+    }
+    
+    .sidebar-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="container blog-container">
+  <!-- Main Content Column -->
+  <div class="main-content">
+    <!-- Featured Article -->
+    <article class="featured-article">
+      <div class="featured-article-image">
+        <a href="{% url 'post_detail' most_recent_post.id %}">
+          <img src="{{most_recent_post.img_url}}" 
+               class="featured-image" 
+               alt="{{most_recent_post.title}}"
+               loading="lazy">
+          <div class="image-overlay"></div>
+        </a>
+        <span class="article-category">{{most_recent_post.category}}</span>
+      </div>
+
+      <div class="featured-article-content">
+        <div class="article-meta">
+          <span class="article-date">
+            <i class="far fa-calendar-alt"></i> 
+            {{most_recent_post.date_posted}}
+          </span>
+          <span class="article-author">
+            <i class="fas fa-user"></i> 
+            {{most_recent_post.author}}
+          </span>
+        </div>
+        
+        <h2 class="article-title">
+          <a href="{% url 'post_detail' most_recent_post.id %}">
+            {{most_recent_post.title}}
+          </a>
+        </h2>
+        
+        <h3 class="article-subtitle">
+          <a href="{% url 'post_detail' most_recent_post.id %}">
+            {{most_recent_post.subtitle}}
+          </a>
+        </h3>
+        
+        <p class="article-excerpt">
+          {{most_recent_post.body|truncatewords:40}}
+        </p>
+        
+        <div class="article-footer">
+          <a href="{% url 'post_detail' most_recent_post.id %}" 
+             class="read-more-btn">
+            Continue Reading
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="article-stats">
+            <span class="reading-time">
+              <i class="far fa-clock"></i> 5 min read
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article Grid -->
+    <section class="article-grid">
+      <div class="grid-container">
+        {% for post in posts %}
+        <article class="article-card">
+          <div class="article-card-image">
+            <a href="{% url 'post_detail' post.id %}">
+              <img src="{{ post.img_url }}" 
+                   class="card-image" 
+                   alt="{{ post.title }}"
+                   loading="lazy">
+              <div class="image-overlay"></div>
+            </a>
+            <span class="article-category">{{post.category}}</span>
+          </div>
+
+          <div class="article-card-content">
+            <div class="article-meta">
+              <span class="article-date">
+                <i class="far fa-calendar-alt"></i> 
+                {{ post.date_posted }}
+              </span>
+              <span class="article-author">
+                <i class="fas fa-user"></i> 
+                {{ post.author }}
+              </span>
+            </div>
+            
+            <h3 class="article-title">
+              <a href="{% url 'post_detail' post.id %}">
+                {{ post.title }}
+              </a>
+            </h3>
+            
+            <p class="article-excerpt">
+              {{ post.body|truncatewords:25 }}
+            </p>
+            
+            <div class="article-footer">
+              <a href="{% url 'post_detail' post.id %}" 
+                 class="read-more-btn">
+                Read More
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <div class="article-stats">
+                <span class="reading-time">
+                  <i class="far fa-clock"></i> 4 min read
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+
+  {% include "blog/sidebar.html" %}
+
+<!-- Social Links -->
+{% include "personal/social_links.html" %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<header style="font-family: Inter, sans-serif;">
+    <!-- Start: Navbar -->
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bs__navbar">
+        <div class="container"><a class="navbar-brand" href="{% url 'home' %}"><img class="bs__logo" src="{% static 'personal/img/logo/logo.png' %}"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav navbar-nav-scroll ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}"><strong>About Us</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/faqs/' %}active{% endif %}" href="{% url 'faqs' %}"><strong>FAQs</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}"><strong>Contact Us</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/blog/' or '/blog/tech/' or '/blog/business/' %}active{% endif %}" href="{% url 'blog_home' %}"><strong>Tribe</strong></a>
+                        </li>
+
+                        {% if user.id == 13 %}
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/post/new/' %}active{% endif %}" href="{% url 'post_create' %}"><strong>Create Post</strong></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/featured/new/' %}active{% endif %}" href="{% url 'featured_post_create' %}"><strong>Create Featured Post</strong></a>
+                            </li>
+                        {% endif %}
+
+                        {% if request.user.is_authenticated %}
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/logout/' %}active{% endif %}" href="{% url 'logout_user' %}"><strong>Logout</strong></a>
+                            </li>
+                        {% else %}
+
+                             <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/register/' %}active{% endif %}" href="{% url 'register' %}"><strong>Signup</strong></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}"><strong>Login</strong></a>
+                            </li>
+                        {% endif %}
+
+                    </ul>
+            </div>
+        </div>
+    </nav><!-- End: Navbar -->
+</header>

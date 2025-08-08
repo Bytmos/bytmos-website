@@ -1,0 +1,61 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block title %}Blog | Business Category{% endblock %}
+{% block og-caption %}{{ most_recent_post.body }}{% endblock %}
+{% block og-description %}Shared by {{ most_recent_post.author}}{% endblock %}
+{% block og-image %}{{ most_recent_post.img_url}}{% endblock %}
+{% block tw-image %}{{ most_recent_post.img_url}}{% endblock %}
+
+{% block content %}
+<main class="container">
+
+  <div class="row g-5">
+    <div class="col-md-8">
+          <div class="card mb-3">
+            <a class="card-title" href="{% url 'post_detail' most_recent_post.id %}"><img src="{{most_recent_post.img_url}}" class="card-img-top" id="card-img-top" alt="most recent Bymos blog post"></a>
+            <div class="card-body">
+                <h1><a class="card-title" href="{% url 'post_detail' most_recent_post.id %}">{{most_recent_post.title}}</a></h1>
+                <h3><a class="card-title" href="{% url 'post_detail' most_recent_post.id %}">{{most_recent_post.subtitle}}</a></h3>
+                <p class="card-text" id="card-text">{{most_recent_post.body}}</p>
+                <p class="card-text"><small class="text-body-secondary"><i>{{most_recent_post.author}} on {{most_recent_post.date_posted}}</i></small></p>
+                <h4><span class="tag">{{most_recent_post.category}}</span></h4>
+              <a class="read-more" href="{% url 'post_detail' most_recent_post.id %}">Read More</a>
+            </div>
+          </div>
+
+            <article class="blog-post">
+              <div class="row row-cols-1 row-cols-md-2 g-4">
+                  {% for post in business_posts %}
+                       <div class="col">
+                            <div class="card" id="card">
+                              <img src="{{ post.img_url }}" class="card-img-top" alt="recent Bymos blog post">
+                              <div class="card-body">
+                                  <h2><a class="card-title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+                                <p class="card-text">{{ post.body }}</p>
+                                  <i>{{ post.author }} on {{ post.date_posted }}</i><br><br>
+                                  <h4><span class="tag">{{post.category}}</span></h4>
+                                  <a class="read-more" href="{% url 'post_detail' post.id %}">Read More</a>
+                              </div>
+                            </div>
+                       </div>
+                  {% endfor %}
+              </div>
+           </article><br>
+
+            <!--        pagination start-->
+            {% include 'blog/pagination.html' %}
+            <!--        pagination end-->
+
+    </div>
+
+      <!--        sidebar start-->
+        {% include 'blog/sidebar.html' %}
+      <!--      sidebar end-->
+
+  </div>
+</main>
+
+
+
+{% endblock %}

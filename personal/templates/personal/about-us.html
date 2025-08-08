@@ -1,0 +1,204 @@
+{% extends "personal/layout.html" %}
+{% load crispy_forms_tags %}
+{% block title %}About Us{% endblock %}
+{% load static %}
+
+
+{% block content %}
+    <!-- Hero Section -->
+<section class="about-hero py-5 bg-light">
+    <div class="container py-4">
+        <h3 class="display-5 fw-bold">About Bytmos</h3>
+        <p class="lead">Connecting businesses with professional service providers worldwide</p>
+    </div>
+</section>
+
+<!-- Who We Are Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="section-tag mb-3">Who We Are</div>
+                <h2 class="mb-4">Bridging the gap between businesses and professionals</h2>
+                <p class="lead">Bytmos serves as a bridge connecting businesses with professional service providers, fostering lasting relationships and creating global collaboration opportunities.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'personal/img/res/vision-img.png' %}" alt="Bytmos vision" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="section-tag mb-3">Our Vision</div>
+                <div class="card h-100 border-0 bg-transparent">
+                    <div class="card-body p-4">
+                        <i class="fas fa-bullseye display-4 text-primary mb-4"></i>
+                        <h3 class="mb-3">Global leadership in professional services</h3>
+                        <p class="card-text">To build the number one social marketplace for professional services globally, transforming how businesses connect with skilled professionals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-tag mb-3">Our Mission</div>
+                <div class="card h-100 border-0 bg-transparent">
+                    <div class="card-body p-4">
+                        <i class="fas fa-rocket display-4 text-primary mb-4"></i>
+                        <h3 class="mb-3">Innovative connections</h3>
+                        <p class="card-text">To connect businesses and professional service providers in a way that's innovative, simple, fast, and rewarding for all parties involved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-tag mb-3">Our Values</div>
+            <h2 class="mb-3">The principles that guide us</h2>
+            <p class="lead text-muted">These core values shape our culture and drive our decisions</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Value Card 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="value-icon bg-primary-light mb-4 mx-auto">
+                            <img src="{% static 'personal/img/icons/group.png' %}" alt="Customer Centricity" class="img-fluid" width="40">
+                        </div>
+                        <h4 class="mb-3">Customer Centricity</h4>
+                        <p class="text-muted">Customer satisfaction is our top priority. We focus on identifying needs and providing tailored solutions for a seamless experience.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Card 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="value-icon bg-primary-light mb-4 mx-auto">
+                            <img src="{% static 'personal/img/icons/inteligence.png' %}" alt="Creativity & Innovation" class="img-fluid" width="40">
+                        </div>
+                        <h4 class="mb-3">Creativity & Innovation</h4>
+                        <p class="text-muted">We're driven by a passion for innovation, constantly seeking new ways to enhance customer experiences through technology.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Card 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="value-icon bg-primary-light mb-4 mx-auto">
+                            <img src="{% static 'personal/img/icons/neighbor.png' %}" alt="Integrity" class="img-fluid" width="40">
+                        </div>
+                        <h4 class="mb-3">Integrity</h4>
+                        <p class="text-muted">Honesty and transparency are our foundation. We uphold the highest ethical standards in all interactions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Card 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="value-icon bg-primary-light mb-4 mx-auto">
+                            <img src="{% static 'personal/img/icons/thinking.png' %}" alt="Long term thinking" class="img-fluid" width="40">
+                        </div>
+                        <h4 class="mb-3">Long Term Thinking</h4>
+                        <p class="text-muted">We execute present goals while envisioning a future of exponential success and lasting impact.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Card 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="value-icon bg-primary-light mb-4 mx-auto">
+                            <img src="{% static 'personal/img/icons/leader.png' %}" alt="Leadership" class="img-fluid" width="40">
+                        </div>
+                        <h4 class="mb-3">Leadership</h4>
+                        <p class="text-muted">We challenge the status quo and inspire others through our work, taking responsibility for driving change.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Card 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="value-icon bg-primary-light mb-4 mx-auto">
+                            <img src="{% static 'personal/img/icons/branding.png' %}" alt="Simplicity" class="img-fluid" width="40">
+                        </div>
+                        <h4 class="mb-3">Simplicity</h4>
+                        <p class="text-muted">We simplify processes through thoughtful design, engineering, and operations for customers and ourselves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leadership Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-tag mb-3">Our Leadership</div>
+            <h2 class="mb-3">Meet the Founders</h2>
+            <p class="lead text-muted">The visionaries behind Bytmos</p>
+        </div>
+        
+        <div class="row justify-content-center g-4">
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <img src="{% static 'personal/img/founders/pascal.png' %}" alt="Pascal Uzosike" class="rounded-circle mb-3" width="120">
+                        <h4 class="mb-2">Pascal Uzosike</h4>
+                        <h6 class="text-primary mb-3">Cofounder & CEO</h6>
+                        <p class="text-muted">Pascal drives the vision and oversees operations, finance, marketing, HR, and technology while balancing the needs of all stakeholders.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <img src="{% static 'personal/img/founders/kingsley.png' %}" alt="Kingsley Ohaeiri" class="rounded-circle mb-3" width="120">
+                        <h4 class="mb-2">Kingsley Ohaeiri</h4>
+                        <h6 class="text-primary mb-3">Cofounder & CTO</h6>
+                        <p class="text-muted">Kingsley leads technology and engineering, developing policies and using technology to enhance customer-focused products and services.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+     {% include "personal/social_links.html" %}
+
+{% endblock %}

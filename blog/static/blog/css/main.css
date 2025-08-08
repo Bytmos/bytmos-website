@@ -1,0 +1,249 @@
+/* General Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Color Palette */
+:root {
+    --primary-color: #00709e;
+    --secondary-color: #004d6b;
+    --accent-color: #00a1d6;
+    --light-bg: #f5f9fc;
+    --text-purple: #6f42c1;
+    --white: #ffffff;
+}
+
+/* Navbar Styling */
+.bs__navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.bs__logo {
+    max-height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.bs__logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    color: var(--white) !important;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--accent-color) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--white);
+}
+
+/* Carousel Section 1 */
+#myCarousel {
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+    filter: brightness(0.9);
+    transition: transform 0.5s ease;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.02);
+}
+
+.carousel-indicators button {
+    background-color: var(--primary-color);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.carousel-indicators .active {
+    background-color: var(--accent-color);
+}
+
+/* Section 2 */
+.my-section {
+    padding: 4rem 0;
+}
+
+.outsource {
+    color: var(--secondary-color);
+}
+
+.bs__btn.blue {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.bs__btn.blue:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.bs__app_home {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section 3 */
+.bs__bg_light {
+    background-color: var(--light-bg);
+}
+
+#carousel-2 .carousel-item {
+    padding: 2rem 0;
+}
+
+.bs__app_slide_image {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.bs__app_slide_image:hover {
+    transform: scale(1.03);
+}
+
+.hook {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+}
+
+.lead-x {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.bs__app_intro_slide_indicator li {
+    background-color: var(--primary-color);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.bs__app_intro_slide_indicator .active {
+    background-color: var(--accent-color);
+}
+
+/* Section 4 */
+.text-purple {
+    color: var(--text-purple);
+}
+
+.bs__chat_illustration1 {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Section 5 */
+.bs__chat_globe {
+    max-width: 250px;
+}
+
+.bs__playstore_icon {
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.bs__playstore_icon:hover {
+    transform: scale(1.1);
+}
+
+.started {
+    color: var(--secondary-color);
+}
+
+/* Section 6 */
+.bs__become_partner_col_left {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.bs__become_partner_col_right img {
+    border-radius: 10px;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.btn-light {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-light:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 400px;
+    }
+
+    .bs__app_slide_image {
+        max-width: 300px;
+    }
+
+    .hook {
+        font-size: 1.5rem;
+    }
+
+    .bs__btn.blue {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
+    }
+
+    .bs__chat_illustration1,
+    .bs__become_partner_col_right img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-nav .nav-link {
+        margin: 0.5rem 0;
+    }
+
+    .bs__logo {
+        max-height: 40px;
+    }
+
+    .outsource h1 {
+        font-size: 2rem;
+    }
+
+    .bs__playstore_icon {
+        max-width: 120px;
+    }
+}

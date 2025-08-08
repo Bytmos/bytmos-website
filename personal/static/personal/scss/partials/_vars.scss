@@ -1,0 +1,8 @@
+@mixin blueBtn {
+    background-color: var(--bs-blue) !important;
+    color: var(--bs-white) !important;
+}
+
+@mixin lightBg {
+    background-color: var(--bs-light) !important;
+}

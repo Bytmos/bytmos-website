@@ -1,0 +1,1307 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytmos App - Professional Services Without Borders</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00709e;
+            --primary-dark: #00576f;
+            --secondary: #7c3aed;
+            --secondary-dark: #5b21b6;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Optimized App Image Styles */
+        .bs__app_home {
+            max-width: 280px;
+            max-height: 600px;
+            width: auto;
+            border-radius: 20px;
+            box-shadow: none !important;
+            object-fit: contain;
+            margin: 0 auto;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .bs__app_home.floating {
+            box-shadow: none !important;
+        }
+
+        @media (min-width: 640px) {
+            .bs__app_home {
+                max-width: 320px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .bs__app_home {
+                max-width: 360px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .bs__app_home {
+                max-width: 400px;
+            }
+        }
+        
+        .bs__app_home:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .carousel-item img {
+            height: 600px;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .carousel-caption {
+            bottom: 10rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+            opacity: 0.5;
+            transition: all 0.3s;
+            margin: 0 6px;
+        }
+
+        .carousel-indicators button.active {
+            opacity: 1;
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white !important;
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: white !important;
+        }
+        
+        .btn-secondary-gradient {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        
+        .btn-secondary-gradient:hover {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .bs__app_slide_image {
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            max-width: 80%;
+            max-height: 600px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        
+        .bs__app_slide_image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .bs__playstore_icon {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bs__playstore_icon:hover {
+            transform: scale(1.05) translateY(-3px);
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .partner-section {
+            background: linear-gradient(135deg, rgba(123, 97, 255, 0.1), rgba(123, 97, 255, 0.05));
+            border-radius: 20px;
+        }
+
+        /* Enhanced Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-container.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chatbot-header .logo-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .chatbot-header .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .chatbot-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f9fafb;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chatbot-message {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chatbot-message.bot {
+            align-items: flex-start;
+        }
+
+        .chatbot-message.user {
+            align-items: flex-end;
+        }
+
+        .message-bubble {
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .chatbot-message.bot .message-bubble {
+            background: white;
+            color: #333;
+            border: 1px solid #e5e7eb;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chatbot-message.user .message-bubble {
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            padding: 10px 14px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #9ca3af;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: typing 1s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .chatbot-footer {
+            padding: 12px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            background: white;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--primary);
+        }
+
+        .chatbot-send-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            margin-left: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-send-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .chatbot-toggle i {
+            font-size: 24px;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .quick-reply-btn {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-reply-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Media Queries */
+        @media (max-width: 576px) {
+            .carousel-item img {
+                height: 250px;
+            }
+            
+            .carousel-caption {
+                bottom: 1rem;
+                padding: 0.5rem;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+            
+            .btn-gradient, .btn-secondary-gradient, .btn-outline-primary {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .bs__app_home {
+                max-width: 200px;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1.25rem;
+            }
+            
+            .navbar-brand span {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-nav .nav-link {
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .feature-card, .bg-gray-50.p-8 {
+                padding: 1rem;
+            }
+            
+            .bs__playstore_icon img {
+                width: 120px;
+            }
+
+            .chatbot-container {
+                width: 90%;
+                height: 70vh;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .chatbot-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .chatbot-toggle i {
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) {
+            .carousel-item img {
+                height: 350px;
+            }
+            
+            .carousel-caption {
+                bottom: 2rem;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+            
+            .btn-gradient, .btn-secondary-gradient, .btn-outline-primary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .carousel-item img {
+                height: 450px;
+            }
+            
+            .carousel-caption {
+                bottom: 4rem;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 2.5rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1.25rem;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1.75rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .carousel-item img {
+                height: 600px;
+            }
+            
+            .carousel-caption {
+                bottom: 10rem;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 3rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2, h3 {
+                font-size: 2.5rem;
+            }
+            
+            h4, h5, h6 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-blue-600" href="#">
+                <span class="text-2xl">Bytmos</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#community">Community</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#partner">Become a Partner</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-gradient text-white px-4" href="#download">Download</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero Carousel -->
+    <section class="relative pt-16">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" class="active" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="{% static 'personal/img/res/2.webp' %}" class="d-block w-100" alt="First slide">
+                    <div class="carousel-caption text-start animate__animated animate__fadeInLeft">
+                        <h2 class="text-4xl font-bold mb-3">Professional Services On Demand</h2>
+                        <p class="text-xl mb-4">Access top-tier professionals whenever you need them</p>
+                        <a href="#download" class="btn btn-gradient btn-lg px-5 py-3">Get Started</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'personal/img/res/4.webp' %}" class="d-block w-100" alt="Second slide">
+                    <div class="carousel-caption text-center animate__animated animate__fadeIn">
+                        <h2 class="text-4xl font-bold mb-3">Global Talent Network</h2>
+                        <p class="text-xl mb-4">Connect with skilled professionals from around the world</p>
+                        <a href="#download" class="btn btn-gradient btn-lg px-5 py-3">Download Now</a>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <img src="{% static 'personal/img/res/6.webp' %}" class="d-block w-100" alt="Third slide">
+                    <div class="carousel-caption text-end animate__animated animate__fadeInRight">
+                        <h2 class="text-4xl font-bold mb-3">Seamless Service Delivery</h2>
+                        <p class="text-xl mb-4">From request to completion - all in one platform</p>
+                        <a href="#download" class="btn btn-gradient btn-lg px-5 py-3">Join Bytmos</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Section 2: Introduction with Optimized Image -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="md:w-1/2 animate__animated animate__fadeInLeft">
+                    <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6 leading-tight">Outsource professional services without borders!</h1>
+                    <p class="text-lg text-gray-600 mb-8">Get instant access to the best services and deliveries, with just a few taps! Experience convenience like never before.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#download" class="btn btn-gradient px-8 py-4 rounded-full font-bold uppercase text-lg animate__animated animate__pulse animate__infinite">Download Bytmos</a>
+                        <a href="#features" class="btn btn-outline-primary px-8 py-4 rounded-full font-bold uppercase text-lg border-2">Learn More</a>
+                    </div>
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="flex -space-x-2">
+                            <img class="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="">
+                            <img class="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1522556189639-b1509e7e43f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="">
+                            <img class="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="">
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Join <span class="text-blue-600 font-bold">10,000+</span> happy users</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 ml-1">4.8 (2.4k reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight bg-white">
+                    <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
+                        <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
+                            <img class="bs__app_home floating" 
+                                 src="{% static 'personal/img/res/bytmos-app.webp' %}" 
+                                 srcset="{% static 'personal/img/res/bytmos-app.webp' %} 400w,
+                                         {% static 'personal/img/res/bytmos-app.webp' %} 800w"
+                                 sizes="(max-width: 768px) 400px,
+                                        800px"
+                                 loading="lazy" 
+                                 alt="Bytmos App Screenshot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Features Carousel -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose Bytmos?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover how Bytmos transforms the way you access professional services</p>
+            </div>
+            
+            <div id="carousel-2" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 flex justify-center">
+                                <img class="bs__app_slide_image max-w-xs md:max-w-md animate__animated animate__fadeInLeft" src="{% static 'personal/img/res/bytmos-event-service.webp' %}" alt="Technology services">
+                            </div>
+                            <div class="md:w-1/2 pt-6 animate__animated animate__fadeInRight">
+                                <h4 class="text-2xl md:text-3xl font-bold mb-6">Access the best business solutions in Technology, Designs & Art, seamlessly</h4>
+                                <p class="text-lg text-gray-600 mb-8">Reduce staffing costs by easily sourcing the best professionals in Design, Tech, Art, and more. Our platform connects you with vetted experts ready to deliver quality work.</p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="#download" class="btn btn-gradient px-8 py-3 rounded-full font-bold uppercase">Download Bytmos</a>
+                                    <a href="#" class="btn btn-outline-primary px-8 py-3 rounded-full font-bold uppercase border-2">See All Features</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 flex justify-center pt-6">
+                                <img class="bs__app_slide_image max-w-xs md:max-w-md animate__animated animate__fadeInLeft" src="{% static 'personal/img/res/bytmos-digital-art.webp' %}" alt="Connect with providers">
+                            </div>
+                            <div class="md:w-1/2 animate__animated animate__fadeInRight">
+                                <h4 class="text-2xl md:text-3xl font-bold mb-6">Connect and stay up-to-date with your preferred providers</h4>
+                                <p class="text-lg text-gray-600 mb-8">Engage with your favorite professionals by commenting, liking, and sharing their posts, and be the first to enjoy exclusive promotions and benefits. Build lasting relationships with service providers.</p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="#download" class="btn btn-gradient px-8 py-3 rounded-full font-bold uppercase">Download Bytmos</a>
+                                    <a href="#" class="btn btn-outline-primary px-8 py-3 rounded-full font-bold uppercase border-2">Learn About Community</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flex flex-col md:flex-row items-center gap-12">
+                            <div class="md:w-1/2 flex justify-center">
+                                <img class="bs__app_slide_image max-w-xs md:max-w-md animate__animated animate__fadeInLeft" src="{% static 'personal/img/res/bytmos-professionals.webp' %}" alt="Home maintenance">
+                            </div>
+                            <div class="md:w-1/2 animate__animated animate__fadeInRight">
+                                <h4 class="text-2xl md:text-3xl font-bold mb-6">Get Home Maintenance services in no time</h4>
+                                <p class="text-lg text-gray-600 mb-8">Bytmos delivers on-demand solutions for all your household needs, from structural repairs to appliance fixes, closet organization, and much more. Quality service at your fingertips.</p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="#download" class="btn btn-gradient px-8 py-3 rounded-full font-bold uppercase">Download Bytmos</a>
+                                    <a href="#" class="btn btn-outline-primary px-8 py-3 rounded-full font-bold uppercase border-2">View Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <ol class="carousel-indicators flex gap-2">
+                        <li data-bs-target="#carousel-2" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carousel-2" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carousel-2" data-bs-slide-to="2"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Quick Access</h4>
+                    <p class="text-gray-600">Find and connect with professionals in minutes, not days. Our streamlined process gets you the help you need fast.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Verified Professionals</h4>
+                    <p class="text-gray-600">All providers are thoroughly vetted to ensure quality and reliability. Your satisfaction is our priority.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-green-600 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Global Network</h4>
+                    <p class="text-gray-600">Access talent from around the world. Find the perfect match for your specific needs, no matter where they are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Community -->
+    <section id="community" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInLeft">
+                    <img class="bs__app_slide_image max-w-md floating" src="{% static 'personal/img/res/chat-ill.webp' %}" loading="lazy" alt="Community of innovators">
+                </div>
+                <div class="md:w-1/2 animate__animated animate__fadeInRight">
+                    <h3 class="text-3xl md:text-4xl font-bold text-purple-600 mb-6 leading-tight">Get served by a community of Bytmos Partners who are innovative solution providers worldwide</h3>
+                    <p class="text-lg text-purple-600 mb-8">Bytmos partners with a network of top service delivery experts to provide innovative solutions for your business needs. Our community-driven approach ensures you get the best possible service.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <a href="#partner" class="btn btn-secondary-gradient text-white px-8 py-3 rounded-full font-bold uppercase mt-8 inline-block">Learn About Partnership</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Users Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our community has to say.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">2 days ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Bytmos completely transformed how I outsource design work. Found an amazing designer in less than an hour!"</p>
+                    <div class="flex items-center">
+                        <img class="w-10 h-10 rounded-full mr-3" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Sarah J.">
+                        <div>
+                            <h5 class="font-bold">Sarah J.</h5>
+                            <p class="text-sm text-gray-500">Small Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">1 week ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"As a freelancer, Bytmos has given me access to clients I would never have found otherwise. The platform is easy to use and payments are always on time."</p>
+                    <div class="flex items-center">
+                        <img class="w-10 h-10 rounded-full mr-3" src="https://images.unsplash.com/photo-1522556189639-b1509e7e43f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Michael T.">
+                        <div>
+                            <h5 class="font-bold">Michael T.</h5>
+                            <p class="text-sm text-gray-500">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">3 weeks ago</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"Found a fantastic developer for my app project. The quality of professionals on Bytmos is outstanding compared to other platforms."</p>
+                    <div class="flex items-center">
+                        <img class="w-10 h-10 rounded-full mr-3" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Priya K.">
+                        <div>
+                            <h5 class="font-bold">Priya K.</h5>
+                            <p class="text-sm text-gray-500">Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Call to Action -->
+    <section id="download" class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 text-center md:text-left">
+                <div class="md:w-1/3 animate__animated animate__fadeInLeft">
+                    <h4 class="text-2xl md:text-3xl font-bold mb-6">Leverage the strength of a connected world to find business solutions.</h4>
+                    <p class="text-lg opacity-90">Join thousands of businesses and professionals who are already benefiting from Bytmos.</p>
+                </div>
+                <div class="md:w-1/3 flex justify-center animate__animated animate__fadeIn">
+                    <img class="max-w-xs floating" src="{% static 'personal/img/res/globe.webp' %}" alt="Global solutions">
+                </div>
+                <div class="md:w-1/3 flex flex-col items-center md:items-start animate__animated animate__fadeInRight">
+                    <h5 class="text-xl font-bold mb-4">Get the app now</h5>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                        <a href="#" class="bs__playstore_icon">
+                            <img class="w-40" src="{% static 'personal/img/res/playstore-icon.webp' %}" alt="Play Store">
+                        </a>
+                        <a href="#" class="bs__playstore_icon">
+                            <img class="w-40" src="{% static 'personal/img/res/app-store-icon.webp' %}" alt="App Store">
+                        </a>
+                    </div>
+                    <span class="text-blue-100 font-bold">To get started, simply download the Bytmos app today.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Become a Partner -->
+    <section id="partner" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-xl">
+                <div class="md:w-1/2 bg-purple-600 text-white p-12">
+                    <h5 class="text-xl md:text-2xl font-bold mb-6">Are you a professional service provider?</h5>
+                    <p class="mb-6 text-lg">Selling services just got better, easier and more rewarding.</p>
+                    <p class="mb-8 text-lg">Become a Bytmos Partner and start building a network of happy customers and other innovative solution providers in your space.</p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Access to a global client base</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Growth opportunities</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Secure payments</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="/bytmos-partner" class="btn btn-light bg-white text-purple-600 px-8 py-3 rounded-full font-bold uppercase hover:bg-gray-100 transition">Join now</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img class="w-full h-full object-cover" src="{% static 'personal/img/res/join.webp' %}" loading="lazy" alt="Become a partner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="text-xl font-bold mb-6">Bytmos</h5>
+                    <p class="text-gray-400 mb-6">Professional services without borders. Connecting businesses with top talent worldwide.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6">Company</h6>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6">Resources</h6>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Partners</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-6">Contact</h6>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Business Ave, Suite 100</li>
+                        <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</li>
+                        <li class="text-gray-400"><i class="fas fa-envelope mr-2"></i> hello@bytmos.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Bytmos. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="logo">
+                <img class="logo-img" src="https://via.placeholder.com/24x24/ffffff/00709e?text=B" alt="Bytmos Logo">
+                <span>Bytmos AI Assistant</span>
+            </div>
+            <button class="close-btn" id="closeChat">×</button>
+        </div>
+        
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chatbot-message bot">
+                <div class="message-bubble">
+                    Hello! I'm Bytmos AI. How can I assist you today?
+                </div>
+            </div>
+            
+            <div class="chatbot-message bot">
+                <div class="message-bubble">
+                    You can ask me about:
+                    <ul style="margin-top: 8px; padding-left: 20px;">
+                        <li>Downloading our app</li>
+                        <li>Becoming a partner</li>
+                        <li>Our services</li>
+                        <li>Account support</li>
+                    </ul>
+                </div>
+                
+                <div class="quick-replies">
+                    <div class="quick-reply-btn" data-reply="How do I download the app?">Download app</div>
+                    <div class="quick-reply-btn" data-reply="How to become a partner?">Become partner</div>
+                    <div class="quick-reply-btn" data-reply="What services do you offer?">Services</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chatbot-footer">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message..." autocomplete="off">
+            <button class="chatbot-send-btn" id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Back to Top Button
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 300) {
+                    $('#backToTop').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+                } else {
+                    $('#backToTop').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+                }
+            });
+            
+            $('#backToTop').click(function(e){
+                e.preventDefault();
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+            
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 80,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Animate elements on scroll
+            function animateOnScroll() {
+                $('.animate__animated').each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    if (scroll + windowHeight > position + 100) {
+                        $(this).addClass($(this).data('animate'));
+                    }
+                });
+            }
+            
+            animateOnScroll();
+            $(window).scroll(function() {
+                animateOnScroll();
+            });
+            
+            // Carousel animations
+            $('#myCarousel').on('slide.bs.carousel', function () {
+                $('.carousel-caption').removeClass('animate__fadeInLeft animate__fadeInRight animate__fadeIn');
+            });
+            
+            $('#myCarousel').on('slid.bs.carousel', function () {
+                var activeIndex = $('.carousel-item.active').index();
+                var caption = $('.carousel-item.active .carousel-caption');
+                if (activeIndex === 0) {
+                    caption.addClass('animate__fadeInLeft');
+                } else if (activeIndex === 2) {
+                    caption.addClass('animate__fadeInRight');
+                } else {
+                    caption.addClass('animate__fadeIn');
+                }
+            });
+
+            // Chatbot functionality
+            const chatbotToggle = $('#chatbotToggle');
+            const chatbotWindow = $('#chatbotWindow');
+            const closeChat = $('#closeChat');
+            const chatbotInput = $('#chatbotInput');
+            const chatbotSend = $('#chatbotSend');
+            const chatbotBody = $('#chatbotBody');
+
+            // Toggle chatbot window
+            chatbotToggle.click(function() {
+                chatbotWindow.toggleClass('active');
+                if (chatbotWindow.hasClass('active')) {
+                    chatbotInput.focus();
+                }
+            });
+
+            closeChat.click(function() {
+                chatbotWindow.removeClass('active');
+            });
+
+            // Show typing indicator
+            function showTyping() {
+                chatbotBody.append(`
+                    <div class="chatbot-message bot" id="typingIndicator">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                `);
+                scrollToBottom();
+            }
+
+            // Remove typing indicator
+            function hideTyping() {
+                $('#typingIndicator').remove();
+            }
+
+            // Scroll to bottom of chat
+            function scrollToBottom() {
+                chatbotBody.scrollTop(chatbotBody[0].scrollHeight);
+            }
+
+            // Generate bot response
+            function generateBotResponse(userMessage) {
+                const lowerMsg = userMessage.toLowerCase();
+                
+                if (/hello|hi|hey|greetings/i.test(lowerMsg)) {
+                    return "Hello there! How can I help you with Bytmos today?";
+                }
+                else if (/download|install|app|get started/i.test(lowerMsg)) {
+                    return `
+                        You can download the Bytmos app from:<br><br>
+                        <strong>Android:</strong> <a href="#download">Google Play Store</a><br>
+                        <strong>iOS:</strong> <a href="#download">Apple App Store</a><br><br>
+                        The app is free to download and use!
+                    `;
+                }
+                else if (/partner|join|provider|become|sign up/i.test(lowerMsg)) {
+                    return `
+                        To become a Bytmos Partner:<br><br>
+                        1. Download the Bytmos app<br>
+                        2. Create a provider account<br>
+                        3. Complete your profile verification<br>
+                        4. Start offering your services!<br><br>
+                        <a href="#partner">Learn more about our partnership program</a>
+                    `;
+                }
+                else if (/service|offer|feature|what.*do|provide/i.test(lowerMsg)) {
+                    return `
+                        Bytmos offers these professional services:<br><br>
+                        <strong>Technology Services:</strong> Web development, app development, IT support<br>
+                        <strong>Design & Art:</strong> Graphic design, illustrations, UI/UX<br>
+                        <strong>Home Maintenance:</strong> Repairs, cleaning, organization<br>
+                        <strong>Business Solutions:</strong> Consulting, marketing, virtual assistance<br><br>
+                        All provided by verified professionals!
+                    `;
+                }
+                else if (/contact|support|help|email|phone|call/i.test(lowerMsg)) {
+                    return `
+                        For direct support, you can:<br><br>
+                        <strong>Email:</strong> support@bytmos.com<br>
+                        <strong>Phone:</strong> +1 (555) 123-4567<br>
+                        <strong>Website:</strong> <a href="https://bytmos.com/support" target="_blank">bytmos.com/support</a><br><br>
+                        Our support team is available 24/7.
+                    `;
+                }
+                else if (/thank|thanks|appreciate/i.test(lowerMsg)) {
+                    return "You're welcome! Is there anything else I can help you with?";
+                }
+                else if (/bye|goodbye|see you/i.test(lowerMsg)) {
+                    return "Goodbye! Feel free to come back if you have more questions. Have a great day!";
+                }
+                else {
+                    return `
+                        I'm not sure I understand. I can help with:<br><br>
+                        • Downloading our app<br>
+                        • Partnership information<br>
+                        • Service offerings<br>
+                        • Account support<br><br>
+                        Could you please rephrase your question?
+                    `;
+                }
+            }
+
+            // Handle sending messages
+            function sendMessage() {
+                const message = chatbotInput.val().trim();
+                if (message) {
+                    // Add user message
+                    chatbotBody.append(`
+                        <div class="chatbot-message user">
+                            <div class="message-bubble">${message}</div>
+                        </div>
+                    `);
+
+                    // Clear input
+                    chatbotInput.val('');
+                    scrollToBottom();
+                    
+                    // Show typing indicator
+                    showTyping();
+                    
+                    // Generate bot response after delay
+                    setTimeout(() => {
+                        hideTyping();
+                        const botResponse = generateBotResponse(message);
+                        
+                        // Add bot response
+                        chatbotBody.append(`
+                            <div class="chatbot-message bot">
+                                <div class="message-bubble">${botResponse}</div>
+                            </div>
+                        `);
+                        
+                        // Add quick replies if not ending conversation
+                        if (!message.toLowerCase().includes('thank') && !message.toLowerCase().includes('bye')) {
+                            chatbotBody.find('.chatbot-message').last().append(`
+                                <div class="quick-replies">
+                                    <div class="quick-reply-btn" data-reply="How do I download the app?">Download app</div>
+                                    <div class="quick-reply-btn" data-reply="How to become a partner?">Become partner</div>
+                                    <div class="quick-reply-btn" data-reply="What services do you offer?">Services</div>
+                                </div>
+                            `);
+                        }
+                        
+                        scrollToBottom();
+                    }, 1000 + Math.random() * 1500); // Random delay between 1-2.5 seconds
+                }
+            }
+
+            // Send message on button click
+            chatbotSend.click(sendMessage);
+            
+            // Send message on Enter key
+            chatbotInput.on('keypress', function(e) {
+                if (e.which === 13) {
+                    sendMessage();
+                }
+            });
+            
+            // Handle quick reply buttons
+            chatbotBody.on('click', '.quick-reply-btn', function() {
+                const replyText = $(this).data('reply');
+                chatbotInput.val(replyText);
+                sendMessage();
+            });
+        });
+    </script>
+</body>
+</html>

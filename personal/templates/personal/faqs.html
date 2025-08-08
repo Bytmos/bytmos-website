@@ -1,0 +1,187 @@
+{% extends "personal/layout.html" %}
+{% block title %}Frequently Asked Questions{% endblock %}
+{% load static %}
+
+
+
+<style>
+.text-primary {
+  color: #00709e !important;
+  width: 1.5rem !important;
+}
+
+.fa-info-circle{
+    width: 1.5rem !important;
+}
+
+
+</style>
+{% block content %}
+<!-- Hero Section -->
+<section class="about-hero py-5 bg-light">
+    <div class="container py-4">
+        <h1 class="display-5 fw-bold">Frequently Asked Questions</h1>
+        <p class="lead">Find instant answers about Bytmos services and partnerships</p>
+    </div>
+</section>
+
+<!-- FAQ Main Content -->
+<section class="faq-main py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- General Information -->
+                <div class="faq-category card mb-5 border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="category-header d-flex align-items-center">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-info-circle fa-fw fa-lg text-primary"></i>
+                            </div>
+                            <h2 class="mb-0 h4 fw-bold text-dark">General Information</h2>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pt-0">
+                        <div class="accordion" id="generalAccordion">
+                            <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold bg-white text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#whatIsBytmos" aria-expanded="false" aria-controls="whatIsBytmos">
+                                        What is Bytmos?
+                                    </button>
+                                </h3>
+                                <div id="whatIsBytmos" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                    <div class="accordion-body">
+                                        <p class="mb-0">Bytmos is an innovative social market platform that bridges the gap between businesses and professional service providers, offering on-demand access to expertise in any location.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold bg-white text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#whoIsPartner" aria-expanded="false" aria-controls="whoIsPartner">
+                                        Who is a Bytmos Partner?
+                                    </button>
+                                </h3>
+                                <div id="whoIsPartner" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                    <div class="accordion-body">
+                                        <p class="mb-0">A Bytmos Partner is an individual professional, small or medium size business that sells services on the Bytmos platform.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ordering Services -->
+                <div class="faq-category card mb-5 border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="category-header d-flex align-items-center">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-shopping-cart fa-fw fa-lg text-primary"></i>
+                            </div>
+                            <h2 class="mb-0 h4 fw-bold text-dark">Ordering Services</h2>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pt-0">
+                        <div class="accordion" id="orderingAccordion">
+                            <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold bg-white text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#howToOrder" aria-expanded="false" aria-controls="howToOrder">
+                                        How do I order a service on Bytmos?
+                                    </button>
+                                </h3>
+                                <div id="howToOrder" class="accordion-collapse collapse" data-bs-parent="#orderingAccordion">
+                                    <div class="accordion-body">
+                                        <ol class="mb-3 ps-3">
+                                            <li class="mb-2">Install the Bytmos mobile app on Google Playstore</li>
+                                            <li class="mb-2">Sign up for an account</li>
+                                            <li class="mb-2">Select a service of your choice</li>
+                                            <li class="mb-3">Place your order</li>
+                                        </ol>
+                                        <a href="#" class="btn btn-primary px-4">Download App</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- For Partners -->
+                <div class="faq-category card mb-5 border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="category-header d-flex align-items-center">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-user-tie fa-fw fa-lg text-primary"></i>
+                            </div>
+                            <h2 class="mb-0 h4 fw-bold text-dark">For Partners</h2>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pt-0">
+                        <div class="accordion" id="partnerAccordion">
+                            <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold bg-white text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#becomePartner" aria-expanded="false" aria-controls="becomePartner">
+                                        How do I become a Bytmos Partner?
+                                    </button>
+                                </h3>
+                                <div id="becomePartner" class="accordion-collapse collapse" data-bs-parent="#partnerAccordion">
+                                    <div class="accordion-body">
+                                        <ol class="mb-3 ps-3">
+                                            <li class="mb-2">Install the Bytmos Partner mobile app on Google Playstore</li>
+                                            <li class="mb-2">Complete the registration process</li>
+                                            <li class="mb-2">Verify your account</li>
+                                            <li class="mb-3">Start offering services</li>
+                                        </ol>
+                                        <a href="{% url 'bytmos_partner' %}" class="btn btn-outline-primary px-4">Become a Partner</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item mb-3 border-0 rounded-3 overflow-hidden shadow-sm">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold bg-white text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#deliverService" aria-expanded="false" aria-controls="deliverService">
+                                        How do I deliver a service on Bytmos?
+                                    </button>
+                                </h3>
+                                <div id="deliverService" class="accordion-collapse collapse" data-bs-parent="#partnerAccordion">
+                                    <div class="accordion-body">
+                                        <ol class="mb-0 ps-3">
+                                            <li class="mb-2">Register on the Bytmos Partner app</li>
+                                            <li class="mb-2">Choose your service category</li>
+                                            <li class="mb-2">Set your price tags</li>
+                                            <li>Accept and fulfill orders</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support CTA Section -->
+<section class="support-cta py-5">
+    <div class="container">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4 p-md-5">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3 class="mb-3">Still need help?</h3>
+                        <p class="mb-0">Can't find what you're looking for? Our support team is ready to assist you.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="{% url 'contact' %}" class="btn btn-lg" style="background-color: #00709e; border-color: #00709e; color: white;">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Added Bootstrap JS for accordion functionality -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{% include "personal/social_links.html" %}
+{% endblock %}

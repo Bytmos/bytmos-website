@@ -1,0 +1,60 @@
+{% load static %}
+
+<footer class="mt-5 bs__footer py-3 footer-text">
+    <div class="container">
+        <div class="row mb-3">
+            <!-- Column 1: About Us, Terms of Use, Privacy Policy -->
+            <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3">
+                <div class="group-item list-group footer_items">
+                    <a class="group-item" href="{% url 'about' %}">
+                        <span><strong>About Us</strong></span>
+                    </a>
+                    <a class="group-item" href="{% url 'terms' %}">
+                        <span><strong>Terms & Conditions</strong></span>
+                    </a>
+                    <a class="group-item" href="{% url 'privacy' %}">
+                        <span><strong>Privacy Policy</strong></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Social Media Links -->
+            <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3">
+                <div class="group-item list-group footer_items">
+                    <a class="group-item" href="https://www.facebook.com/bytmos?mibextid=LQQJ4d">
+                        <span><strong>Facebook</strong></span>
+                    </a>
+                    <a class="group-item" href="https://www.linkedin.com/company/bytmos/">
+                        <span><strong>LinkedIn</strong></span>
+                    </a>
+                    <a class="group-item" href="https://www.instagram.com/bytmos/">
+                        <span><strong>Instagram</strong><br></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 3: Help Center and App Store Icons -->
+            <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3">
+                <div class="group-item list-group footer_items">
+                    <a class="group-item" href="https://twitter.com/bytmos">
+                        <span><strong>Twitter</strong></span>
+                    </a>
+
+                    <a class="group-item" href="#">
+                        <span><strong>Help Center</strong></span>
+                    </a>
+                    <a class="group-item">
+                        <img class="bs__playstore_icon_" src="{% static 'personal/img/res/playstore-icon.webp' %}" alt="Play Store Icon">
+                        <br>
+                        <img class="bs__playstore_icon_" src="{% static 'personal/img/res/app-store-icon.webp' %}" alt="App Store Icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Information -->
+        <p class="text-center">
+            <strong>&copy; {{ year }} Copyright Bytmos Ltd.</strong>
+        </p>
+    </div>
+</footer>

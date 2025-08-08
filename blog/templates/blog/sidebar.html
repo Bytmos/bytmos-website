@@ -1,0 +1,101 @@
+<!-- Right Sidebar -->
+  <aside class="right-sidebar">
+    <!-- Featured Sidebar Post -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-image">
+        <a href="{% url 'featured_post_detail' featured_post.id %}">
+          <img src="{{ featured_post.img_url }}" 
+               class="sidebar-featured-image" 
+               alt="{{ featured_post.title }}"
+               loading="lazy">
+          <div class="image-overlay"></div>
+        </a>
+        <span class="sidebar-category">Featured</span>
+      </div>
+      <div class="sidebar-card-body">
+        <h3 class="sidebar-title">
+          <a href="{% url 'featured_post_detail' featured_post.id %}">
+            {{ featured_post.title }}
+          </a>
+        </h3>
+        <p class="sidebar-excerpt">
+          {{ featured_post.body|truncatewords:20 }}
+        </p>
+        <a href="{% url 'featured_post_detail' featured_post.id %}" 
+           class="read-more-btn">
+          Read Story
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Recent Posts Section -->
+    <div class="sidebar-section">
+      <h3 class="sidebar-heading">
+        <i class="fas fa-clock me-2"></i>Recent Posts
+      </h3>
+      <div class="recent-posts-list">
+        {% for r_post in recent_posts %}
+        <a href="{% url 'post_detail' r_post.id %}" class="recent-post-item">
+          <div class="recent-post-image">
+            <img src="{{ r_post.img_url }}" 
+                 alt="{{ r_post.title }}"
+                 loading="lazy">
+          </div>
+          <div class="recent-post-content">
+            <h4 class="recent-post-title">{{ r_post.title }}</h4>
+            <div class="recent-post-meta">
+              <span class="recent-post-date">
+                <i class="far fa-calendar-alt"></i> {{ r_post.date_posted }}
+              </span>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="sidebar-section">
+      <h3 class="sidebar-heading">
+        <i class="fas fa-tags me-2"></i>Categories
+      </h3>
+      <div class="categories-list">
+        <a href="#" class="category-item">
+          <span class="category-icon">
+            <i class="fas fa-paint-brush"></i>
+          </span>
+          <span class="category-name">Arts & Crafts</span>
+        </a>
+        
+        <a href="#" class="category-item">
+          <span class="category-icon">
+            <i class="fas fa-spa"></i>
+          </span>
+          <span class="category-name">Beauty</span>
+        </a>
+        
+        <a href="#" class="category-item">
+          <span class="category-icon">
+            <i class="fas fa-briefcase"></i>
+          </span>
+          <span class="category-name">Business</span>
+        </a>
+        
+        <a href="#" class="category-item">
+          <span class="category-icon">
+            <i class="fas fa-laptop-code"></i>
+          </span>
+          <span class="category-name">Technology</span>
+        </a>
+      </div>
+    </div>
+    <!-- Pagination - Now properly placed in main content -->
+    <div class="pagination-wrapper">
+      {% include 'blog/pagination.html' %}
+    </div>
+  </aside>
+  
+</main>
