@@ -84,7 +84,6 @@
 }
 
 .carousel-caption.text-end {
-
     padding-right: 10rem;
 }
 
@@ -111,29 +110,29 @@
 /* Container styling */
 .app-download-container {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center horizontally */
-  gap: 0.75rem; /* Space between icons and text */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
-/* Icons container - keeps horizontal layout */
+/* Icons container */
 .app-icons {
   display: flex;
-  gap: 1rem; /* Space between the two icons */
+  gap: 1rem;
   justify-content: center;
 }
 
-/* Text styling - always appears below icons */
+/* Text styling */
 .app-download-text {
   text-align: center;
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 700; /* font-bold */
-  color: #374151; /* text-gray-700 */
-  margin-top: 0.5rem; /* Extra space above text */
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #374151;
+  margin-top: 0.5rem;
 }
 
-/* Maintain existing hover effects */
+/* App store icons */
 .app-icons a {
   transition: transform 0.2s ease;
 }
@@ -141,26 +140,147 @@
   transform: scale(1.05);
 }
 
-/* Optional: Adjust icon sizing */
+/* Store icon sizing */
 .img-store-icon {
-  height: 40px; /* Standard app store button height */
+  height: 40px;
   width: 200px;
 }
 
+/* ========== Responsive Media Queries ========== */
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* Extra Small Devices (320px - 575px) */
+@media (max-width: 575.98px) {
+    .carousel-inner {
+        height: 60vh;
+        max-height: 500px;
+    }
+    
     .carousel-caption {
         padding: 1rem;
+        padding-bottom: 3rem;
     }
+    
     .carousel-caption h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
+    
     .carousel-caption p {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .carousel-caption.text-end {
+        padding-right: 1rem;
+    }
+    
+    .btn-gradient {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .img-store-icon {
+        height: 35px;
+        width: 150px;
+    }
+    
+    #how-it-works h3 {
+        font-size: 1.25rem;
     }
 }
 
+/* Small Devices (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .carousel-inner {
+        height: 70vh;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 1.75rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+    
+    .carousel-caption.text-end {
+        padding-right: 3rem;
+    }
+}
+
+/* Medium Devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .carousel-inner {
+        height: 80vh;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 2.25rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Large Devices (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .carousel-inner {
+        height: 90vh;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 2.75rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Extra Large Devices (1200px and up) */
+@media (min-width: 1200px) {
+    .carousel-inner {
+        height: 100vh;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 3.5rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.5rem;
+    }
+}
+
+/* Special adjustments for very small screens */
+@media (max-width: 400px) {
+    .carousel-inner {
+        height: 50vh;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 1.25rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.8rem;
+    }
+    
+    .btn-gradient {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Adjustments for landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .carousel-inner {
+        height: 150vh;
+    }
+    
+    .carousel-caption {
+        padding-bottom: 2rem;
+    }
+}
 </style>
 
 {% endblock %}
