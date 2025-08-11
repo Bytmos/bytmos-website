@@ -1,51 +1,187 @@
+{% load static %}
+
+{% block extra_css_files %}
+<style>
+.download_button {
+    width: 230px;
+    height: 80px ;
+    
+   
+}
+
+.app-download-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.app-download-section h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #d1d5db; /* Matches text-gray-300 */
+}
+
+.app-download-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.app-download-buttons a {
+    transition: transform 0.3s ease;
+}
+
+.app-download-buttons a:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .download_button {
+        width: 140px;
+        height: 42px;
+    }
+    
+    .app-download-section h4 {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .download_button {
+        width: 120px;
+        height: 36px;
+    }
+    
+    .app-download-section h4 {
+        font-size: 1rem;
+    }
+    
+    .app-download-buttons {
+        gap: 0.75rem;
+    }
+}
+</style>
+{% endblock %}
+
 <!-- Footer -->
-        <section class="bg-gray-900 text-white py-12">
-            <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-4 gap-8">
-                    <div>
-                        <h5 class="text-xl font-bold mb-6">Bytmos</h5>
-                        <p class="text-gray-400 mb-6">Professional services without borders. Connecting businesses with top talent worldwide.</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div>
-                        <h6 class="font-bold mb-6">Company</h6>
-                        <ul class="space-y-3">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h6 class="font-bold mb-6">Resources</h6>
-                        <ul class="space-y-3">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Partners</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Community</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h6 class="font-bold mb-6">Contact</h6>
-                        <ul class="space-y-3">
-                            <li class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Business Ave, Suite 100</li>
-                            <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</li>
-                            <li class="text-gray-400"><i class="fas fa-envelope mr-2"></i> hello@bytmos.com</li>
-                        </ul>
-                    </div>
+<section class="bg-gray-900 text-white py-16" id="footer">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-10">
+            <!-- Brand Column -->
+            <div class="space-y-6">
+                <div class="flex items-center">
+                    <h5 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Bytmos</h5>
                 </div>
-                <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0"> <strong>&copy; {{ year }} Copyright Bytmos Ltd.</strong></p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">Cookies</a>
-                    </div>
+                <p class="text-gray-400 text-lg leading-relaxed">Professional services without borders. Connecting businesses with top talent worldwide.</p>
+                <div class="flex space-x-5">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 transform hover:-translate-y-1 text-xl w-8 h-8 flex items-center justify-center">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 transform hover:-translate-y-1 text-xl w-8 h-8 flex items-center justify-center">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 transform hover:-translate-y-1 text-xl w-8 h-8 flex items-center justify-center">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 transform hover:-translate-y-1 text-xl w-8 h-8 flex items-center justify-center">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
-        </section>
+
+            <!-- Company Links -->
+            <div>
+                <h6 class="font-bold text-xl mb-6 relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-blue-500">Company</h6>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        About Us
+                    </a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Careers
+                    </a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Blog
+                    </a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Press
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Links -->
+            <div>
+                <h6 class="font-bold text-xl mb-6 relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-blue-500">Resources</h6>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Help Center
+                    </a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Partners
+                    </a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Community
+                    </a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center group">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition"></span>
+                        Webinars
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h6 class="font-bold text-xl mb-6 relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-blue-500">Contact</h6>
+                <ul class="space-y-4">
+                    <li class="text-gray-400 flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400 w-5 text-center"></i>
+                        <span>123 Business Ave, Suite 100<br>New York, NY 10001</span>
+                    </li>
+                    <li class="text-gray-400 flex items-center">
+                        <i class="fas fa-phone mr-3 text-blue-400 w-5 text-center"></i>
+                        +1 (555) 123-4567
+                    </li>
+                    <li class="text-gray-400 flex items-center">
+                        <i class="fas fa-envelope mr-3 text-blue-400 w-5 text-center"></i>
+                        hello@bytmos.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- App Download Section -->
+        <div class="app-download-section mt-16 mb-12 text-center">
+            <h4 class="text-xl font-semibold mb-6 text-gray-300">Download Our App</h4>
+            <div class="app-download-buttons">
+                <a href="#" class="transition-transform hover:scale-105">
+                    <img class="download_button" src="{% static 'personal/img/res/playstore-icon.webp' %}" alt="Play Store">
+                </a>
+                <a href="#" class="transition-transform hover:scale-105">
+                    <img class="download_button" src="{% static 'personal/img/res/app-store-icon.webp' %}" alt="App Store">
+                </a>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-500 mb-4 md:mb-0 text-center md:text-left">
+                <strong>&copy; {{ year }} Bytmos Ltd.</strong> All rights reserved.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                <a href="#" class="text-gray-500 hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-500 hover:text-white transition duration-300">Terms of Service</a>
+                <a href="#" class="text-gray-500 hover:text-white transition duration-300">Cookies</a>
+                <a href="#" class="text-gray-500 hover:text-white transition duration-300">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</section>

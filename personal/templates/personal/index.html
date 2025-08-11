@@ -2,10 +2,8 @@
 {% load static %}
 
 {% block extra_css_files %}
-
 <style>
     /* Animation for the feature cards */
-
 .custom-image-size {
     max-width: 280px;
     width: 100%;
@@ -55,6 +53,12 @@
     padding-right: 10rem;
 }
 
+.ai_logo{
+
+    height: 30px;
+    width:30px;
+}
+
 /* Text Alignment Variations */
 .text-start { text-align: left; padding-left: 5%; }
 .text-center { text-align: center; }
@@ -73,6 +77,31 @@
 .btn-gradient:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Chatbot Styling */
+.chatbot-toggle {
+    background-color: #00709e !important; /* Set toggle button color */
+}
+.chatbot-header {
+    background-color: #00709e !important; /* Set header color */
+}
+.chatbot-send-btn {
+    background-color: #00709e !important; /* Set send button color */
+}
+.chatbot-send-btn:hover {
+    background-color: #005a80 !important; /* Set send button hover color */
+}
+.chatbot-input:focus {
+    border-color: #00709e !important; /* Set input focus border color */
+    box-shadow: 0 0 0 2px rgba(0, 112, 158, 0.2) !important; /* Set input focus ring color */
+}
+.quick-reply-btn {
+    background-color: rgba(0, 112, 158, 0.1) !important; /* Set quick reply background */
+    color: #00709e !important; /* Set quick reply text color */
+}
+.quick-reply-btn:hover {
+    background-color: rgba(0, 112, 158, 0.2) !important; /* Set quick reply hover background */
 }
 
 /* Responsive Adjustments for All Screen Sizes */
@@ -214,12 +243,10 @@
     }
 }
 </style>
-
 {% endblock %}
 
 {% block content %}
-    <body class="bg-gray-50 text-gray-800">
-
+<body class="bg-gray-50 text-gray-800">
     <section class="relative pt-16">
         <div id="partnerCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -294,19 +321,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight bg-white">
-                    <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
-                        <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
-                            <img class="bs__app_home floating" 
-                                src="{% static 'personal/img/res/bytmos-app.webp' %}" 
-                                srcset="{% static 'personal/img/res/bytmos-app.webp' %} 400w,
-                                        {% static 'personal/img/res/bytmos-app.webp' %} 800w"
-                                sizes="(max-width: 768px) 400px,
-                                        800px"
-                                loading="lazy" 
-                                alt="Bytmos App Screenshot">
-                        </div>
-                    </div>
+                <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
+                    <img class="bs__app_home floating custom-image-size" 
+                         src="{% static 'personal/img/res/bytmos-app.webp' %}" 
+                         srcset="{% static 'personal/img/res/bytmos-app.webp' %} 400w,
+                                 {% static 'personal/img/res/bytmos-app.webp' %} 800w"
+                         sizes="(max-width: 768px) 400px,
+                                 800px"
+                         loading="lazy" 
+                         alt="Bytmos App Screenshot">
                 </div>
             </div>
         </div>
@@ -594,146 +617,101 @@
     </a>
 
     <!-- Chatbot Widget -->
-    <div class="chatbot-toggle" id="chatbotToggle">
-        <i class="fas fa-comment-dots"></i>
-    </div>
-
-    <div class="chatbot-container" id="chatbotWindow">
-        <div class="chatbot-header">
-            <div class="logo">
-                <img class="logo-img" src="https://via.placeholder.com/24x24/ffffff/00709e?text=B" alt="Bytmos Logo">
-                <span>Bytmos AI Assistant</span>
-            </div>
-            <button class="close-btn" id="closeChat">×</button>
+    <div class="fixed bottom-8 right-8 z-50">
+        <!-- Toggle Button -->
+        <div class="chatbot-toggle w-16 h-16 bg-[#00709e] rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:shadow-xl transition-all hover:scale-105" id="chatbotToggle">
+            <i class="fas fa-comment-dots text-white text-2xl"></i>
         </div>
-        
-        <div class="chatbot-body" id="chatbotBody">
-            <div class="chatbot-message bot">
-                <div class="message-bubble">
-                    Hello! I'm Bytmos AI. How can I assist you today?
+
+        <!-- Chat Window -->
+        <div class="chatbot-container hidden absolute bottom-20 right-0 w-80 h-[500px] bg-white rounded-lg shadow-xl flex flex-col border border-gray-200 overflow-hidden" id="chatbotWindow">
+            <!-- Header -->
+            <div class="chatbot-header bg-[#00709e] text-white p-4 flex items-center justify-between">
+                <div class="logo flex items-center space-x-2">
+                    <img class="logo-img w-8 h-8 ai_logo" src="{% static 'personal/img/logo/favicon.png' %}" alt="Bytmos Logo">
+                    <span class="font-semibold">Bytmos AI Assistant</span>
                 </div>
+                <button class="close-btn text-white text-2xl hover:text-gray-200" id="closeChat">&times;</button>
             </div>
             
-            <div class="chatbot-message bot">
-                <div class="message-bubble">
-                    You can ask me about:
-                    <ul style="margin-top: 8px; padding-left: 20px;">
-                        <li>Downloading our app</li>
-                        <li>Becoming a partner</li>
-                        <li>Our services</li>
-                        <li>Account support</li>
-                    </ul>
+            <!-- Chat Body -->
+            <div class="chatbot-body flex-1 p-4 overflow-y-auto bg-gray-50" id="chatbotBody">
+                <!-- Bot Message -->
+                <div class="chatbot-message mb-4 flex">
+                    <div class="message-bubble bg-white rounded-lg p-3 shadow max-w-[80%] text-gray-800">
+                        Hello! I'm Bytmos AI. How can I assist you today?
+                    </div>
                 </div>
                 
-                <div class="quick-replies">
-                    <div class="quick-reply-btn" data-reply="How do I download the app?">Download app</div>
-                    <div class="quick-reply-btn" data-reply="How to become a partner?">Become partner</div>
-                    <div class="quick-reply-btn" data-reply="What services do you offer?">Services</div>
+                <!-- Bot Message with List -->
+                <div class="chatbot-message mb-4 flex">
+                    <div class="message-bubble bg-white rounded-lg p-3 shadow max-w-[80%] text-gray-800">
+                        You can ask me about:
+                        <ul class="mt-2 pl-5 list-disc">
+                            <li>Downloading our app</li>
+                            <li>Becoming a partner</li>
+                            <li>Our services</li>
+                            <li>Account support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Quick Replies -->
+                <div class="quick-replies flex flex-wrap gap-2 mt-2">
+                    <div class="quick-reply-btn bg-[#00709e] bg-opacity-10 text-[#00709e] rounded-full px-3 py-1 text-sm cursor-pointer hover:bg-opacity-20 transition-colors" data-reply="How do I download the app?">
+                        Download app
+                    </div>
+                    <div class="quick-reply-btn bg-[#00709e] bg-opacity-10 text-[#00709e] rounded-full px-3 py-1 text-sm cursor-pointer hover:bg-opacity-20 transition-colors" data-reply="How to become a partner?">
+                        Become partner
+                    </div>
+                    <div class="quick-reply-btn bg-[#00709e] bg-opacity-10 text-[#00709e] rounded-full px-3 py-1 text-sm cursor-pointer hover:bg-opacity-20 transition-colors" data-reply="What services do you offer?">
+                        Services
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="chatbot-footer">
-            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message..." autocomplete="off">
-            <button class="chatbot-send-btn" id="chatbotSend">
-                <i class="fas fa-paper-plane"></i>
-            </button>
+            
+            <!-- Footer/Input Area -->
+            <div class="chatbot-footer p-3 bg-white border-t border-gray-200 flex">
+                <input type="text" class="chatbot-input flex-1 border border-gray-300 rounded-l-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[#00709e] focus:border-transparent" id="chatbotInput" placeholder="Type your message..." autocomplete="off">
+                <button class="chatbot-send-btn bg-[#00709e] text-white rounded-r-full px-4 hover:bg-[#005a80] transition-colors" id="chatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
-            // Back to Top Button
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > 300) {
-                    $('#backToTop').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
-                } else {
-                    $('#backToTop').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-                }
-            });
-            
-            $('#backToTop').click(function(e){
-                e.preventDefault();
-                $('html, body').animate({scrollTop: 0}, 800);
-                return false;
-            });
-            
-            // Smooth scrolling for anchor links
-            $('a[href*="#"]').on('click', function(e) {
-                e.preventDefault();
-                $('html, body').animate(
-                    {
-                        scrollTop: $($(this).attr('href')).offset().top - 80,
-                    },
-                    500,
-                    'linear'
-                );
-            });
-            
-            // Animate elements on scroll
-            function animateOnScroll() {
-                $('.animate__animated').each(function() {
-                    var position = $(this).offset().top;
-                    var scroll = $(window).scrollTop();
-                    var windowHeight = $(window).height();
-                    if (scroll + windowHeight > position + 100) {
-                        $(this).addClass($(this).data('animate'));
-                    }
-                });
-            }
-            
-            animateOnScroll();
-            $(window).scroll(function() {
-                animateOnScroll();
-            });
-            
-            // Carousel animations
-            $('#myCarousel').on('slide.bs.carousel', function () {
-                $('.carousel-caption').removeClass('animate__fadeInLeft animate__fadeInRight animate__fadeIn');
-            });
-            
-            $('#myCarousel').on('slid.bs.carousel', function () {
-                var activeIndex = $('.carousel-item.active').index();
-                var caption = $('.carousel-item.active .carousel-caption');
-                if (activeIndex === 0) {
-                    caption.addClass('animate__fadeInLeft');
-                } else if (activeIndex === 2) {
-                    caption.addClass('animate__fadeInRight');
-                } else {
-                    caption.addClass('animate__fadeIn');
-                }
-            });
-
+        document.addEventListener('DOMContentLoaded', function() {
             // Chatbot functionality
-            const chatbotToggle = $('#chatbotToggle');
-            const chatbotWindow = $('#chatbotWindow');
-            const closeChat = $('#closeChat');
-            const chatbotInput = $('#chatbotInput');
-            const chatbotSend = $('#chatbotSend');
-            const chatbotBody = $('#chatbotBody');
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChat = document.getElementById('closeChat');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotSend = document.getElementById('chatbotSend');
+            const chatbotBody = document.getElementById('chatbotBody');
 
             // Toggle chatbot window
-            chatbotToggle.click(function() {
-                chatbotWindow.toggleClass('active');
-                if (chatbotWindow.hasClass('active')) {
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.classList.toggle('hidden');
+                if (!chatbotWindow.classList.contains('hidden')) {
                     chatbotInput.focus();
                 }
             });
 
-            closeChat.click(function() {
-                chatbotWindow.removeClass('active');
+            closeChat.addEventListener('click', function() {
+                chatbotWindow.classList.add('hidden');
             });
 
             // Show typing indicator
             function showTyping() {
-                chatbotBody.append(`
-                    <div class="chatbot-message bot" id="typingIndicator">
-                        <div class="typing-indicator">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                chatbotBody.insertAdjacentHTML('beforeend', `
+                    <div class="chatbot-message mb-4 flex" id="typingIndicator">
+                        <div class="message-bubble bg-white rounded-lg p-3 shadow max-w-[80%] text-gray-800">
+                            <div class="typing-indicator flex space-x-1">
+                                <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                            </div>
                         </div>
                     </div>
                 `);
@@ -742,12 +720,13 @@
 
             // Remove typing indicator
             function hideTyping() {
-                $('#typingIndicator').remove();
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) typingIndicator.remove();
             }
 
             // Scroll to bottom of chat
             function scrollToBottom() {
-                chatbotBody.scrollTop(chatbotBody[0].scrollHeight);
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
             }
 
             // Generate bot response
@@ -760,8 +739,8 @@
                 else if (/download|install|app|get started/i.test(lowerMsg)) {
                     return `
                         You can download the Bytmos app from:<br><br>
-                        <strong>Android:</strong> <a href="#download">Google Play Store</a><br>
-                        <strong>iOS:</strong> <a href="#download">Apple App Store</a><br><br>
+                        <strong>Android:</strong> <a href="#download" class="text-[#00709e] hover:underline">Google Play Store</a><br>
+                        <strong>iOS:</strong> <a href="#download" class="text-[#00709e] hover:underline">Apple App Store</a><br><br>
                         The app is free to download and use!
                     `;
                 }
@@ -772,7 +751,7 @@
                         2. Create a provider account<br>
                         3. Complete your profile verification<br>
                         4. Start offering your services!<br><br>
-                        <a href="#partner">Learn more about our partnership program</a>
+                        <a href="#partner" class="text-[#00709e] hover:underline">Learn more about our partnership program</a>
                     `;
                 }
                 else if (/service|offer|feature|what.*do|provide/i.test(lowerMsg)) {
@@ -790,7 +769,7 @@
                         For direct support, you can:<br><br>
                         <strong>Email:</strong> support@bytmos.com<br>
                         <strong>Phone:</strong> +1 (555) 123-4567<br>
-                        <strong>Website:</strong> <a href="https://bytmos.com/support" target="_blank">bytmos.com/support</a><br><br>
+                        <strong>Website:</strong> <a href="https://bytmos.com/support" target="_blank" class="text-[#00709e] hover:underline">bytmos.com/support</a><br><br>
                         Our support team is available 24/7.
                     `;
                 }
@@ -814,17 +793,19 @@
 
             // Handle sending messages
             function sendMessage() {
-                const message = chatbotInput.val().trim();
+                const message = chatbotInput.value.trim();
                 if (message) {
                     // Add user message
-                    chatbotBody.append(`
-                        <div class="chatbot-message user">
-                            <div class="message-bubble">${message}</div>
+                    chatbotBody.insertAdjacentHTML('beforeend', `
+                        <div class="chatbot-message mb-4 flex justify-end">
+                            <div class="message-bubble bg-[#00709e] text-white rounded-lg p-3 shadow max-w-[80%]">
+                                ${message}
+                            </div>
                         </div>
                     `);
 
                     // Clear input
-                    chatbotInput.val('');
+                    chatbotInput.value = '';
                     scrollToBottom();
                     
                     // Show typing indicator
@@ -836,19 +817,27 @@
                         const botResponse = generateBotResponse(message);
                         
                         // Add bot response
-                        chatbotBody.append(`
-                            <div class="chatbot-message bot">
-                                <div class="message-bubble">${botResponse}</div>
+                        chatbotBody.insertAdjacentHTML('beforeend', `
+                            <div class="chatbot-message mb-4 flex">
+                                <div class="message-bubble bg-white rounded-lg p-3 shadow max-w-[80%] text-gray-800">
+                                    ${botResponse}
+                                </div>
                             </div>
                         `);
                         
                         // Add quick replies if not ending conversation
                         if (!message.toLowerCase().includes('thank') && !message.toLowerCase().includes('bye')) {
-                            chatbotBody.find('.chatbot-message').last().append(`
-                                <div class="quick-replies">
-                                    <div class="quick-reply-btn" data-reply="How do I download the app?">Download app</div>
-                                    <div class="quick-reply-btn" data-reply="How to become a partner?">Become partner</div>
-                                    <div class="quick-reply-btn" data-reply="What services do you offer?">Services</div>
+                            chatbotBody.insertAdjacentHTML('beforeend', `
+                                <div class="quick-replies flex flex-wrap gap-2 mt-2">
+                                    <div class="quick-reply-btn bg-[#00709e] bg-opacity-10 text-[#00709e] rounded-full px-3 py-1 text-sm cursor-pointer hover:bg-opacity-20 transition-colors" data-reply="How do I download the app?">
+                                        Download app
+                                    </div>
+                                    <div class="quick-reply-btn bg-[#00709e] bg-opacity-10 text-[#00709e] rounded-full px-3 py-1 text-sm cursor-pointer hover:bg-opacity-20 transition-colors" data-reply="How to become a partner?">
+                                        Become partner
+                                    </div>
+                                    <div class="quick-reply-btn bg-[#00709e] bg-opacity-10 text-[#00709e] rounded-full px-3 py-1 text-sm cursor-pointer hover:bg-opacity-20 transition-colors" data-reply="What services do you offer?">
+                                        Services
+                                    </div>
                                 </div>
                             `);
                         }
@@ -859,24 +848,26 @@
             }
 
             // Send message on button click
-            chatbotSend.click(sendMessage);
+            chatbotSend.addEventListener('click', sendMessage);
             
             // Send message on Enter key
-            chatbotInput.on('keypress', function(e) {
-                if (e.which === 13) {
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
                     sendMessage();
                 }
             });
             
             // Handle quick reply buttons
-            chatbotBody.on('click', '.quick-reply-btn', function() {
-                const replyText = $(this).data('reply');
-                chatbotInput.val(replyText);
-                sendMessage();
+            chatbotBody.addEventListener('click', function(e) {
+                if (e.target.classList.contains('quick-reply-btn')) {
+                    const replyText = e.target.getAttribute('data-reply');
+                    chatbotInput.value = replyText;
+                    sendMessage();
+                }
             });
         });
     </script>
-    </body>
-    <!-- Social Links -->
+</body>
+<!-- Social Links -->
 {% include "personal/social_links.html" %}
 {% endblock %}
