@@ -9,7 +9,7 @@ from personal.sitemaps import StaticViewSitemap, BlogPostSitemap, FeaturedPostSi
 from django.views.generic.base import TemplateView
 from personal.views import (
     home, bytmos_partner,
-    about, faqs, terms, privacy
+    about, faqs, terms, privacy, account_deletion
 )
 
 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('terms/', terms, name='terms'),
     path('privacy/', privacy, name='privacy'),
     path('bytmos_partner/', bytmos_partner, name='bytmos_partner'),
+    path('account_deletion/', account_deletion, name='account_deletion'),
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', logout_user, name='logout_user'),

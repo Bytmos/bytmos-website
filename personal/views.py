@@ -37,6 +37,9 @@ def terms(request):
 def privacy(request):
     return render(request, 'personal/privacy.html')
 
+def account_deletion(request):
+    return render(request, 'personal/account_deletion.html')
+
 
 # def contact(request):
 #     return render(request, 'personal/contact-us.html')

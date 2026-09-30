@@ -1,0 +1,292 @@
+{% extends "personal/layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+<style>
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    }
+    .container {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    .container:hover {
+        transform: translateY(-5px);
+    }
+    h1 {
+        color: #00709e;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    p {
+        color: #4a4a4a;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+    .success-message {
+        color: #00709e;
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin: 1rem 0;
+        display: none;
+    }
+    label {
+        display: block;
+        text-align: left;
+        margin: 0.5rem 0 0.3rem;
+        color: #333;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.2rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #00709e;
+        box-shadow: 0 0 0 3px rgba(0, 112, 158, 0.1);
+    }
+    textarea {
+        height: 120px;
+        resize: vertical;
+    }
+    button {
+        background-color: #00709e;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+        background-color: #005f82;
+        transform: translateY(-2px);
+    }
+    button:disabled {
+        background-color: #b3c7d6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* Media Queries for Responsiveness */
+    /* Extra Small Screens (up to 479px, e.g., small mobile devices) */
+    @media (max-width: 479px) {
+        .container {
+            padding: 1.2rem;
+            margin: 0.5rem;
+            max-width: 90%;
+        }
+        h1 {
+            font-size: 1.4rem;
+        }
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-message {
+            font-size: 1rem;
+        }
+        label {
+            font-size: 0.85rem;
+        }
+        input, textarea {
+            padding: 0.6rem;
+            font-size: 0.9rem;
+        }
+        textarea {
+            height: 100px;
+        }
+        button {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Small Screens (480px to 767px, e.g., larger mobile devices) */
+    @media (min-width: 480px) and (max-width: 767px) {
+        .container {
+            padding: 1.5rem;
+            margin: 1rem;
+            max-width: 90%;
+        }
+        h1 {
+            font-size: 1.6rem;
+        }
+        p {
+            font-size: 0.95rem;
+        }
+        .success-message {
+            font-size: 1.05rem;
+        }
+        label {
+            font-size: 0.9rem;
+        }
+        input, textarea {
+            padding: 0.7rem;
+            font-size: 0.95rem;
+        }
+        textarea {
+            height: 110px;
+        }
+        button {
+            padding: 0.7rem 1.3rem;
+            font-size: 0.95rem;
+        }
+    }
+
+    /* Medium Screens (768px to 991px, e.g., tablets) */
+    @media (min-width: 768px) and (max-width: 991px) {
+        .container {
+            padding: 2rem;
+            max-width: 550px;
+        }
+        h1 {
+            font-size: 1.7rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .success-message {
+            font-size: 1.1rem;
+        }
+        label {
+            font-size: 0.9rem;
+        }
+        input, textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+        textarea {
+            height: 115px;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    /* Large Screens (992px to 1199px, e.g., small desktops) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .container {
+            padding: 2.5rem;
+            max-width: 580px;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .success-message {
+            font-size: 1.1rem;
+        }
+        label {
+            font-size: 0.9rem;
+        }
+        input, textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    /* Extra Large Screens (1200px and above, e.g., large desktops) */
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 600px;
+            padding: 2.5rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .success-message {
+            font-size: 1.1rem;
+        }
+        label {
+            font-size: 0.9rem;
+        }
+        input, textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Your Account</h1>
+        <p id="intro-text">We're sorry to see you go. Please provide the following details to proceed with account deletion. This action cannot be undone.</p>
+        <p class="success-message" id="success-message">Account deletion request sent successfully! You'll receive a confirmation soon.</p>
+        <label for="bpId">BP ID</label>
+        <input type="text" id="bpId" name="bpId" placeholder="Enter your BP ID" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <label for="reason">Reason for Deletion</label>
+        <textarea id="reason" name="reason" placeholder="Please tell us why you are deleting your account" required></textarea>
+        <button id="delete-button" onclick="confirmDeletion()">Delete Account</button>
+    </div>
+    <script>
+        function confirmDeletion() {
+            const bpId = document.getElementById('bpId').value;
+            const email = document.getElementById('email').value;
+            const reason = document.getElementById('reason').value;
+            const deleteButton = document.getElementById('delete-button');
+            const introText = document.getElementById('intro-text');
+            const successMessage = document.getElementById('success-message');
+
+            if (!bpId || !email || !reason) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            if (confirm("Are you absolutely sure you want to delete your account?")) {
+                // Hide input fields and intro text, show success message
+                document.getElementById('bpId').style.display = 'none';
+                document.getElementById('email').style.display = 'none';
+                document.getElementById('reason').style.display = 'none';
+                document.querySelectorAll('label').forEach(label => label.style.display = 'none');
+                introText.style.display = 'none';
+                successMessage.style.display = 'block';
+                deleteButton.disabled = true;
+                // Add actual deletion logic here (e.g., API call with bpId, email, reason)
+            }
+        }
+    </script>
+</body>
+</html>
