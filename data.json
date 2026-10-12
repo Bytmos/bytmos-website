@@ -1,0 +1,714 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$rs55Nwad6dtxA7vXr2n2nh$i0l2ayZv8f20jeBsVZkQoOLh1Euq3ZWru2ivOIFzbJA=",
+    "last_login": "2024-05-21T13:06:29.931Z",
+    "is_superuser": true,
+    "username": "bitpascals",
+    "first_name": "",
+    "last_name": "",
+    "email": "pascaluzosike61@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-04-18T11:24:12.380Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Smggfnwrk4OyIoXqzPbR2m$kT7H6Xs1q+VBs24vDB+EG5GZLGgSpO5yUY80UGhDx+w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "TestUser",
+    "first_name": "",
+    "last_name": "",
+    "email": "testuser@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-04-18T12:17:48Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$QJB8hEUhifHLUhAux11suA$86KKZbKubQI7teT1sp/AnT0QBwhaN6Me6En0jCU0cKQ=",
+    "last_login": "2024-04-25T22:14:18.839Z",
+    "is_superuser": false,
+    "username": "bytmos",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-04-23T21:14:19.935Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$BRgHf6K3liDGkc6WSAOL6c$6hB77xHOUvUIR41b9TsagwDJQ3XDxV23PrcN2sw5v9M=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "fred123",
+    "first_name": "",
+    "last_name": "",
+    "email": "fred123@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-04-23T21:46:35.278Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$D6rSBcN8PHp8hWsQ9ihYVj$HP7/b1X2oHHikyu9RqGALY/Be0y2zkXog92/bPsmKsw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "amara",
+    "first_name": "",
+    "last_name": "",
+    "email": "amara@gmial.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-04-27T05:23:55.159Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$JwnK6jrrNYrjRK4Z5FEY4Q$kgNUPLo+u2OYGhSRE+cqf26sGvW51shZ0t3d+QFWNWI=",
+    "last_login": "2024-04-27T05:26:51.371Z",
+    "is_superuser": false,
+    "username": "Pascal",
+    "first_name": "",
+    "last_name": "",
+    "email": "pascaluzosike@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-04-27T05:26:40.494Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$BFW94731f7CeAVhWlnjSaT$VSr4K9uQyHaoenr4tULMLjzr9ONted6ivzPKjgAobkM=",
+    "last_login": "2024-08-08T08:44:43.744Z",
+    "is_superuser": true,
+    "username": "bitPascals",
+    "first_name": "",
+    "last_name": "",
+    "email": "pascaluzosike61@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-08-05T17:47:51.556Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$5vQPtZpIYicnhpPgfU4Bo1$DyAYeviBTyCyXojSXhTzLAJDlCTtPBw1wFOouw8bXX8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test5",
+    "first_name": "",
+    "last_name": "",
+    "email": "test5@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-06T13:23:36.908Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$l3h9gJGWLGenaApfnw725h$Y/AyG0pC+1+oQf/JOXtD1e0n2J2b8JV3wYzCf7dgSsM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test0",
+    "first_name": "",
+    "last_name": "",
+    "email": "test0@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-07T05:10:59.667Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$EWUQ0tA3CsO8IDucEA11nu$Dec/ynwiiIZtsqXO3Zen/HrSEn5JjfjM4aIhkzTiC3A=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test10",
+    "first_name": "",
+    "last_name": "",
+    "email": "test10@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-07T05:20:55.838Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$wg2ROcCu9cnLRnkOflPtdl$+CJdba0jcPJmQ0NFlSfhN3Mcpplszdt/cpj22LoxOek=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test11",
+    "first_name": "",
+    "last_name": "",
+    "email": "test10@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-07T05:26:05.018Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$0KKkMHZmNy3jO7BSX3Ow01$SgK2RPRBWlIl1AgKLDnHudoadiwk+WC8hFObMzyERKA=",
+    "last_login": "2024-08-08T08:21:29.493Z",
+    "is_superuser": false,
+    "username": "test12",
+    "first_name": "",
+    "last_name": "",
+    "email": "test12@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-07T05:28:04.448Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$I48gGpxJEqYuMRCDaNyYNH$VGYiWxS1OIrCtwnLraZH0DW0OV9Fqcj2Ju2MrpgDefs=",
+    "last_login": "2026-09-30T13:58:11.478Z",
+    "is_superuser": true,
+    "username": "@bitpascals",
+    "first_name": "",
+    "last_name": "",
+    "email": "pascaluzosike@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-08-08T09:03:59.042Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$BeB51u4Gan3xP5eaVVed9I$9luXHM1Fm9zIrG0xMpC47ncFiU2t6zAo3XOTa6Ffqs8=",
+    "last_login": "2025-08-08T01:37:56.160Z",
+    "is_superuser": false,
+    "username": "pascals",
+    "first_name": "",
+    "last_name": "",
+    "email": "pascaluzosike61@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-06T00:06:32.210Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "bitpascals"
+    ],
+    "image": "profile_pics/What-Happens-When-We-Reconnect-with-Nature.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "bytmos"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "amara"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "Pascal"
+    ],
+    "image": "profile_pics/IMG_20220803_130834_6182.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "test5"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "test0"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "test10"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "test11"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "test12"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "@bitpascals"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "pascals"
+    ],
+    "image": "default.jpg"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 1,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Artificial Intelligence",
+    "subtitle": "The Future of Artificial Intelligence",
+    "date_posted": "2024-04-20T00:25:42Z",
+    "body": "One cannot to over emphasize the immense effect of artificial intelligence on the future of business and industry. This probably is the last invention of mankind before exiting the earth.",
+    "img_url": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.britannica.com%2F47%2F246247-050-F1021DE9%2FAI-text-to-image-photo-robot-with-computer.jpg&tbnid=VbHbbd8uZOE0EM&vet=12ahUKEwiz9oO7xM-FAxWSSqQEHcH",
+    "category": "Business",
+    "comments": "AI %  Machine Learning are the flag bearers of the tides ahead."
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 3,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "10 Fastest Growing Industries of the Future",
+    "subtitle": "Which Industries to Invest",
+    "date_posted": "2024-05-03T00:14:39Z",
+    "body": "One of the most important decision to make is the industry to invest in.",
+    "img_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fgroww.in%2Fblog%2Fbest-investment-for-monthly-income-in-india&psig=AOvVaw3AzdcN1wPdqXqD-gS5lgPh&ust=1714781821671000&source=images&cd=vfe&opi=89978449",
+    "category": "Business",
+    "comments": "I totally agree with you on this."
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 4,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Technology",
+    "subtitle": "Startup Vesting",
+    "date_posted": "2024-05-04T23:09:23.126Z",
+    "body": "What do you mean by startup vesting?",
+    "img_url": "",
+    "category": "Tech",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 6,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Africa is the Future of Business",
+    "subtitle": "Can Africa be the Future of Business and Industries.",
+    "date_posted": "2024-05-04T23:27:59.537Z",
+    "body": "This is the largest tale of a journey of a multitude of people with vast ethnicity and culture.",
+    "img_url": "",
+    "category": "Tech",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 7,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Deep Learing",
+    "subtitle": "What is Deep Learning and how does it affect the future of Tech?",
+    "date_posted": "2024-05-12T19:12:44.596Z",
+    "body": "What is Deep Learning and how does it affect the future of Tech?",
+    "img_url": "",
+    "category": "Tech",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 8,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Machine Learing",
+    "subtitle": "An exiting journey",
+    "date_posted": "2024-05-12T19:13:39.725Z",
+    "body": "As students progress from learning Linear Regression to Multiple Linear Regression there are a few common questions that arise.\r\n\r\nThis free bonus tackles two of the most frequently asked Multiple Linear Regression-related questions that we hear from students on their Machine Learning journey.",
+    "img_url": "",
+    "category": "Tech",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 9,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Technology",
+    "subtitle": "The subject of technology",
+    "date_posted": "2024-05-12T19:17:10.371Z",
+    "body": "The Polish-born French physicist was famous for her work on radioactivity, becoming the first woman to win a Nobel Prize in 1903 (for Physics), and later becoming the only woman to win a Nobel in two different fields when, in 1911, she won the Nobel Prize for Chemistry.",
+    "img_url": "",
+    "category": "Tech",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 10,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Subrahmanyan Chandrasekhar",
+    "subtitle": "Lahore, India",
+    "date_posted": "2024-05-12T19:19:26.321Z",
+    "body": "Subrahmanyan Chandrasekhar (born October 19, 1910, Lahore, India [now in Pakistan]—died August 21, 1995, Chicago, Illinois, U.S.) was an Indian-born American astrophysicist who, with William A. Fowler, won the 1983 Nobel Prize for Physics for key discoveries that led to the currently accepted theory on the later evolutionary stages of massive stars.\r\n\r\nChandrasekhar was the nephew of Sir Chandrasekhara Venkata Raman, who won the Nobel Prize for Physics in 1930. Chandrasekhar was educated at Presidency College, at the University of Madras, and at Trinity College, Cambridge. From 1933 to 1936 he held a position at Trinity.",
+    "img_url": "",
+    "category": "Business",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 11,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Traveling to the Coastal Side of Earth",
+    "subtitle": "Exploring 7 of Earth’s Great Mountain Ranges",
+    "date_posted": "2024-05-12T19:21:58Z",
+    "body": "Like hiking? Then come and explore the plants and animals of seven of the world’s major mountain ranges! From the towering Himalayas to the austere Atlas Mountains, mountain ecosystems are chock full of interesting organisms. Often considered biological hotspots, many of these regions feature life forms with amazing adaptations to enable survival in rugged terrain and extreme weather conditions. Learn more about montane flora and fauna with this quick tour through a variety of mountains across the globe.",
+    "img_url": "https://www.realsimple.com/thmb/VQWBH9X8CDjXq3pn3wuJmzsEn4o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/travel-agent-GettyImages-1211719627-4b924cc562fe4ab4b137b6e4ea9d401d.jpg",
+    "category": "Business",
+    "comments": "The best experience ever."
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 12,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "What Do you Feel About Culture?",
+    "subtitle": "6 Classical Dances of India",
+    "date_posted": "2024-05-12T19:23:39Z",
+    "body": "Impressionism comprises the work produced between about 1867 and 1886 by a group of artists, headlined by Claude Monet and Pierre Auguste Renoir, who shared a set of related approaches and techniques. The most conspicuous characteristic was an attempt to accurately and objectively record visual reality in terms of transient effects of light and color.",
+    "img_url": "https://cdn.businessday.ng/2016/09/Nigeria-culture.jpg",
+    "category": "Tech",
+    "comments": "I love so much about culture in Africa."
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 13,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Household Finance",
+    "subtitle": "What is insurance and how does it work?",
+    "date_posted": "2024-05-12T19:25:22.377Z",
+    "body": "What a year you had! You broke your leg right before your beach vacation (which you had to cancel), your sore tooth needed a crown, and your fender bender necessitated major car repairs. Luckily you had medical, dental, auto, and even trip insurance. The money you received in insurance claims was more than the total you paid in premiums this year. That’s good, right?\r\n\r\nIf every person had a bad year like this, how would insurance companies stay in business? Insurance companies have to make sure the claims they pay out in total are covered by the premiums they collect from all their policyholders. This balance of premiums versus payouts is how insurance works.",
+    "img_url": "",
+    "category": "Business",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 14,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "Will AI Disrupt Digital Marketing?",
+    "subtitle": "Auto insurance.",
+    "date_posted": "2024-05-12T19:26:49Z",
+    "body": "Insurance is an agreement in which a person makes payments to a company and the company promises to pay out money if the person has a specific loss.\r\n\r\nDepending on your situation, you might have some or all of the following types of insurance:\r\n\r\nAuto insurance. Covers losses you or another driver incur from an accident.\r\nMortgage insurance. Protects the bank if you bought a home with a small down payment.\r\nHomeowner’s insurance. Protects you if your house catches fire or someone is hurt in your home.\r\nRental insurance. Covers losses from theft or damage if you rent your home.\r\nLife insurance. Helps your family weather the financial hit if you pass away.\r\nHealth insurance. Covers everything from doctor visits and medications to catastrophic illness and injuries.\r\nDental and vision insurance. May cover annual exams, cleanings (dental), and glasses or contacts (vision).\r\nTrip insurance. May cover expenses if you have to cancel or reschedule a vacation.\r\nLiability insurance. Helps pay for legal liabilities if you injure others or are negligent.\r\nWhat are insurable risks?\r\nInsurance companies typically collect money from large groups of policyholders. They put all the money into one pool that’s used to make payouts. Because the group of policyholders is diverse, it’s unlikely that everyone will have large claims at one time. In fact, a risk that is insurable must meet some requirements:\r\n\r\nThe insured objects must be numerous enough and similar enough to calculate the probability of how many and how severe losses might be.\r\nThe insured objects must not be subject to simultaneous destruction. For example, one company would not want to insure every home in the same subdivision along the same stretch of Florida coast because, if a hurricane were to wipe out the whole area, that company would likely become insolvent and unable to pay its claims.\r\nThe possible loss must be accidental and beyond the control of the person who is insured.\r\nHow does insurance work?\r\nIn order to be profitable, insurance companies use certain techniques to help mitigate the risk of losses:\r\n\r\nUnderwriting. The process of underwriting assesses the risks of each individual policyholder, such as age, health status, driving record, location, or occupation. Actuaries then use mathematical and statistical models to calculate premiums by predicting future claims. The goal of the insurance company is to charge more in premiums than they pay out, resulting in profit from underwriting.\r\nInvestments. Insurance companies are allowed to invest the money they collect in premiums, holding enough in liquid reserves (i.e., funds they can pay out to satisfy claims) to comply with capital requirements. These investments generate additional revenue for the companies.\r\nReinsurance. Some insurance companies purchase their own insurance from large reinsurance companies, providing an additional layer of protection against large claims.",
+    "img_url": "https://10web.io/blog/wp-content/uploads/sites/2/2024/02/Marketing-websites-image-scaled.jpg",
+    "category": "Business",
+    "comments": "Awesome"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 15,
+  "fields": {
+    "author": [
+      "bitpascals"
+    ],
+    "title": "What Does the Future Hold For Art & History",
+    "subtitle": "Recently Posted",
+    "date_posted": "2024-05-12T19:28:39Z",
+    "body": "free market, an unregulated system of economic exchange, in which taxes, quality controls, quotas, tariffs, and other forms of centralized economic interventions by government either do not exist or are minimal. As the free market represents a benchmark that does not actually exist, modern societies can only approach or approximate this ideal of efficient resource allocation and can be described along a spectrum ranging from low to high amounts of regulation.\r\n\r\nMany economists consider resource allocation in a free market to be Pareto-efficient, where no one can be made better off without making other individuals worse off, given certain conditions (like the absence of externalities, or side effects, and of informational asymmetries, or disparities of knowledge, among others). Moreover, according to this theory, through the invisible-hand mechanism of self-regulating behaviour, society benefits by having self-interested actors make free economic decisions that benefit themselves. Some ethicists have argued that the efficiency of free markets depends on several moral parameters as scope conditions, such as fair play, prudence, self-restraint, competition among equal parties, and cooperation.\r\n\r\nCritics of the free market system tend to argue that certain market failures require government intervention. First, prices may not fully reflect the costs or benefits of certain goods or services, especially costs to the environment. Public goods are often underinvested or exploited to the detriment of others or future generations, unless such exploitation is prohibited through government regulation (see tragedy of the commons). Second, a free market may tempt competitors to collude, which makes antitrust legislation necessary. Antitrust and similar regulations are especially necessary in cases where certain market actors, such as companies, have acquired enormous market power. Third, transaction costs may mean that some exchanges are best performed in a hierarchy rather than in spot markets (where payment and delivery are made on the spot). Most importantly, Pareto-optimal resource allocation in a free market may violate principles of distributive justice and fairness and may thus necessitate some government action.\r\n\r\nIn response to these critiques, economists Ronald Coase, Milton Friedman, Ludwig von Mises, and Friedrich A. Hayek, among others, have argued for the robustness of markets because they can adjust to or internalize supposed market failures in many situations. For instance, many goods traditionally conceptualized as public goods requiring government provision have been shown to be open to free market contracting. Libertarians are strong defenders of the idea that a system of free markets provides the best economic system.\r\n\r\nMarc Orlitzky\r\nReferences\r\nMilton Friedman, Capitalism and Freedom (1962); Tyler Cowen, The Theory of Market Failure: A Critical Examination (1988); Daniel F. Spulber, Regulation and Markets (1989); Cass R. Sunstein, Free Markets and Social Justice (1997); and John Tomasi, Free Market Fairness (2012).\r\n\r\nMarc Orlitzky\r\nThe Editors of Encyclopaedia Britannica",
+    "img_url": "https://media.timeout.com/images/105795964/750/562/image.jpg",
+    "category": "Tech",
+    "comments": "Awesome"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 16,
+  "fields": {
+    "author": [
+      "bytmos"
+    ],
+    "title": "Modern Way to Build a 7 Star Hotel in Africa.",
+    "subtitle": "The Modern Way to Build a 7 Star Hotel in Africa.",
+    "date_posted": "2024-08-06T03:28:01Z",
+    "body": "free market, an unregulated system of economic exchange, in which taxes, quality controls, quotas, tariffs, and other forms of centralized economic interventions by government either do not exist or are minimal. As the free market represents a benchmark that does not actually exist, modern societies can only approach or approximate this ideal of efficient resource allocation and can be described along a spectrum ranging from low to high amount.",
+    "img_url": "https://amc.com.ng/images/construction.jpg",
+    "category": "Tech",
+    "comments": "Yes, it is indeed possible with the coming of advanced technology systems."
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 17,
+  "fields": {
+    "author": [
+      "test12"
+    ],
+    "title": "Business of The Day",
+    "subtitle": "How Digital Marketing Has Changed the Face of Modern Day Business",
+    "date_posted": "2024-08-08T08:23:31.657Z",
+    "body": "Where does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+    "img_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/how-to-run-a-business.jpg?width=595&height=400&name=how-to-run-a-business.jpg",
+    "category": "Business",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 26,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "What Art & Craft Techniques Resonates Most With You",
+    "subtitle": "Working Your Way To Be an Art LOVER",
+    "date_posted": "2024-08-22T05:07:07.303Z",
+    "body": "<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, <strong>when an unknown printer took</strong> a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic t<strong><em>ypesetting,</em> remaining essentially unchanged</strong>. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing&nbsp;<a href=\"http://bytmos.com\">bytmos.com</a> PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://static.vecteezy.com/system/resources/previews/022/191/132/non_2x/colorful-cat-white-background-dripping-art-free-photo.jpg\" style=\"height:467px; width:700px\" /></p>",
+    "img_url": "https://img.freepik.com/free-photo/abstract-nature-painted-with-watercolor-autumn-leaves-backdrop-generated-by-ai_188544-9806.jpg",
+    "category": "Tech",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 27,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "The standard Lorem Ipsum passage, used since the 1500s",
+    "subtitle": "Your Way To Be an Art",
+    "date_posted": "2024-08-22T10:20:05.715Z",
+    "body": "<p>&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. <strong><em>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat</em></strong> voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&quot;</p>",
+    "img_url": "https://img.lovepik.com/bg/20231212/kawamotoshin-aoyama-yumyum-photoshoot-yellow-flowers-jpg_2451866_wh1200.png",
+    "category": "Art & Craft",
+    "comments": ""
+  }
+},
+{
+  "model": "blog.featuredpost",
+  "pk": 1,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "The smart way to sell a service",
+    "date_posted": "2024-08-09T23:38:23.880Z",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "img_url": "https://s7280.pcdn.co/wp-content/uploads/2019/08/defining-what-is-an-it-service.png"
+  }
+},
+{
+  "model": "blog.featuredpost",
+  "pk": 2,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "a",
+    "date_posted": "2024-08-09T23:54:00.283Z",
+    "body": "a",
+    "img_url": "a"
+  }
+},
+{
+  "model": "blog.featuredpost",
+  "pk": 3,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "q",
+    "date_posted": "2024-08-10T00:41:59.228Z",
+    "body": "a",
+    "img_url": "a"
+  }
+},
+{
+  "model": "blog.featuredpost",
+  "pk": 4,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "a",
+    "date_posted": "2024-08-10T00:54:45.436Z",
+    "body": "a",
+    "img_url": "a"
+  }
+},
+{
+  "model": "blog.featuredpost",
+  "pk": 5,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "The Era of OpenAI Flow & ChatGpt",
+    "date_posted": "2024-08-11T21:37:10.214Z",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "img_url": "https://itknowledgezone.com/wp-content/uploads/2023/02/Will-ChatGPT-take-over-the-digital-world.jpg"
+  }
+},
+{
+  "model": "blog.featuredpost",
+  "pk": 6,
+  "fields": {
+    "author": [
+      "@bitpascals"
+    ],
+    "title": "The Coming of OpenAI & ChatGpt",
+    "date_posted": "2024-08-11T21:54:22.723Z",
+    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "img_url": "https://coingeek.com/wp-content/uploads/2023/06/OpenAI-headquarters-jpg.webp"
+  }
+}
+]
