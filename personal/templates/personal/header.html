@@ -26,30 +26,30 @@
                 <li class="nav-item mx-1">
                     <a class="nav-link {% if request.path == '/bytmos_partner/' %}active{% endif %}" href="{% url 'bytmos_partner' %}">Sell on Bytmos</a>
                 </li>
-                <li class="nav-item mx-1">
+                <!-- <li class="nav-item mx-1">
                     <a class="nav-link {% if request.path == '/bytmos-partner/' %}active{% endif %}" href="{% url 'blog_home' %}">Tribe</a>
-                </li>
+                </li> -->
                 
                 {% if user.id == 13 %}
-                    <li class="nav-item mx-1">
+                    <!-- <li class="nav-item mx-1">
                         <a class="nav-link {% if request.path == '/post/new/' %}active{% endif %}" href="{% url 'post_create' %}">Create Post</a>
                     </li>
                     <li class="nav-item mx-1">
                         <a class="nav-link {% if request.path == '/featured/new/' %}active{% endif %}" href="{% url 'featured_post_create' %}">Create Featured Post</a>
-                    </li>
+                    </li> -->
                 {% endif %}
 
                 {% if request.user.is_authenticated %}
-                    <li class="nav-item mx-1">
+                    <!-- <li class="nav-item mx-1">
                         <a class="nav-link {% if request.path == '/logout/' %}active{% endif %}" href="{% url 'logout_user' %}">Logout</a>
-                    </li>
+                    </li> -->
                 {% else %}
-                    <li class="nav-item mx-1">
+                    <!-- <li class="nav-item mx-1">
                         <a class="nav-link {% if request.path == '/register/' %}active{% endif %}" href="{% url 'register' %}">Signup</a>
-                    </li>
-                    <li class="nav-item mx-1">
+                    </li> -->
+                    <!-- <li class="nav-item mx-1">
                         <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">Login</a>
-                    </li>
+                    </li> -->
                 {% endif %}
                 
                 <li class="nav-item ms-2">
