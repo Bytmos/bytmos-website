@@ -188,6 +188,92 @@ body.has-fixed-nav .about-hero {
             bottom: 10rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
+
+        /* ================= Hero carousel only (#partnerCarousel) =================
+           Slide height and caption text scale fluidly (clamp) so the caption always
+           fits inside the image. The caption is centred above the indicator dots
+           without transforms, so animate.css slide-ins don't fight the positioning.
+           The ID selector also beats the carousel rules in index.html's inline <style>,
+           which keep applying unchanged to every other carousel on the site. */
+        #partnerCarousel .carousel-inner,
+        #partnerCarousel .carousel-item {
+            height: auto;
+            max-height: none;
+        }
+
+        #partnerCarousel .carousel-item img {
+            display: block;
+            width: 100%;
+            height: clamp(420px, 60vw, 600px) !important;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        /* Dark fade over the lower part of the slide so the caption stays readable */
+        #partnerCarousel .carousel-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 70%);
+            pointer-events: none;
+        }
+
+        #partnerCarousel .carousel-caption {
+            top: 0;
+            bottom: 3.5rem;               /* clears the indicator dots */
+            left: 1rem;
+            right: 1rem;
+            height: fit-content;          /* with auto block margins = vertical centring */
+            margin-block: auto;
+            padding: 0;
+            background: none;
+            z-index: 10;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #partnerCarousel .carousel-caption h2 {
+            font-size: clamp(1.5rem, 1rem + 2.5vw, 3rem);
+            line-height: 1.2;
+        }
+
+        #partnerCarousel .carousel-caption p {
+            font-size: clamp(0.95rem, 0.8rem + 0.9vw, 1.5rem);
+            line-height: 1.5;
+        }
+
+        /* !important on padding is needed to beat the px-5 / py-3 utility classes */
+        #partnerCarousel .carousel-caption .btn {
+            font-size: clamp(0.85rem, 0.75rem + 0.5vw, 1.15rem);
+            padding: clamp(0.45rem, 0.3rem + 0.6vw, 0.9rem) clamp(1rem, 0.5rem + 3vw, 2.5rem) !important;
+        }
+
+        @media (min-width: 577px) {
+            #partnerCarousel .carousel-caption { left: 8%; right: 8%; }
+        }
+        @media (min-width: 769px) {
+            #partnerCarousel .carousel-caption { left: 12%; right: 12%; }
+        }
+        @media (min-width: 993px) {
+            #partnerCarousel .carousel-caption { left: 15%; right: 15%; }
+        }
+        /* Tighten the gap between the hero carousel and the section after it:
+           no bottom padding on the hero section, and a smaller top padding on
+           whatever follows it (ID inside :has() outranks the section/utility padding) */
+        section:has(#partnerCarousel) {
+            padding-bottom: 0;
+        }
+
+        section:has(#partnerCarousel) + * {
+            padding-top: clamp(2rem, 6vw, 3.5rem);
+        }
+
+        /* On tablets and phones, left-align every hero caption. The slides use text-start /
+           text-center / text-end in the HTML; !important is needed because Bootstrap's
+           text-* utilities are !important too. */
+        @media (max-width: 768px) {
+            #partnerCarousel .carousel-caption { text-align: left !important; }
+        }
+        /* ================= /Hero carousel ================= */
         
         .carousel-indicators button {
             width: 12px;
@@ -246,7 +332,7 @@ body.has-fixed-nav .about-hero {
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             transition: transform 0.5s ease, box-shadow 0.5s ease;
-            max-width: 80%;
+            max-width: 100%;
             max-height: 600px;
             width: auto;
             height: auto;
@@ -521,7 +607,8 @@ body.has-fixed-nav .about-hero {
         /* Media Queries */
         @media (max-width: 576px) {
             .carousel-item img {
-                height: 250px;
+                height: 100%;
+                width: 100%
             }
             
             .carousel-caption {

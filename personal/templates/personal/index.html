@@ -8,91 +8,34 @@
 <style>
     /* Animation for the feature cards */
 
-.custom-image-size {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-}
 
-/* Carousel Container */
-.carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    height: 100vh; /* Full viewport height */
-    max-height: 800px; /* Optional max height */
-}
-
-/* Carousel Images */
-.carousel-image {
-    width: 100%;
-    height: auto !important;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-/* Carousel Items */
-.carousel-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s ease-in-out;
-}
-
-/* Caption Styling */
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: white;
-    z-index: 10;
-    padding-bottom: 6rem;
-}
-
-.carousel-caption.text-end {
-
-    padding-right: 10rem;
-}
-
-
-/* Text Alignment Variations */
-.text-start { text-align: left; padding-left: 5%; }
-.text-center { text-align: center; }
-.text-end { text-align: right; padding-right: 5%; }
-
-/* Button Styling */
-.btn-gradient {
-    background: linear-gradient(135deg, #00709e, #00709e);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .carousel-caption {
-        padding: 1rem;
+    .custom-image-size {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
     }
-    .carousel-caption h2 {
-        font-size: 2rem;
-    }
-    .carousel-caption p {
-        font-size: 1rem;
-    }
-}
 
+    /* Text Alignment Variations */
+    .text-start { text-align: left; padding-left: 5%; }
+    .text-center { text-align: center; }
+    .text-end { text-align: right; padding-right: 5%; }
+
+    /* Button Styling */
+    .btn-gradient {
+        background: linear-gradient(135deg, #00709e, #00709e);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
 </style>
+
 
 {% endblock %}
 
@@ -159,17 +102,7 @@
                                 <img class="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1522556189639-b1509e7e43f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="">
                                 <img class="w-10 h-10 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="">
                             </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-600">Join <span class="text-blue-600 font-bold">10,000+</span> happy users</p>
-                                <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-600 ml-1">4.8 (2.4k reviews)</span>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight bg-white">
@@ -354,7 +287,7 @@
                         </div>
                         <p class="text-gray-700 mb-6">"As a freelancer, Bytmos has given me access to clients I would never have found otherwise. The platform is easy to use and payments are always on time."</p>
                         <div class="flex items-center">
-                            <img class="w-10 h-10 rounded-full mr-3" src="https://images.unsplash.com/photo-1522556189639-b1509e7e43f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Michael T.">
+                            <img class="w-10 h-10 rounded-full mr-3" src="{% static 'personal/img/res/graphic-designer-man.jpg' %}" alt="Michael T.">
                             <div>
                                 <h5 class="font-bold">Michael T.</h5>
                                 <p class="text-sm text-gray-500">Graphic Designer</p>
@@ -375,9 +308,9 @@
                         </div>
                         <p class="text-gray-700 mb-6">"Found a fantastic developer for my app project. The quality of professionals on Bytmos is outstanding compared to other platforms."</p>
                         <div class="flex items-center">
-                            <img class="w-10 h-10 rounded-full mr-3" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Priya K.">
+                            <img class="w-10 h-10 rounded-full mr-3" src="{% static 'personal/img/res/business-owner.png' %}" alt="Alfred K.">
                             <div>
-                                <h5 class="font-bold">Priya K.</h5>
+                                <h5 class="font-bold">Alfred K.</h5>
                                 <p class="text-sm text-gray-500">Startup Founder</p>
                             </div>
                         </div>
@@ -401,10 +334,10 @@
                     <h5 class="text-xl font-bold mb-4">Get the app now</h5>
                     <div class="flex flex-col sm:flex-row gap-4 mb-6">
                         <div class="flex items-center justify-center gap-4">
-                            <a href="#" class="transition-transform hover:scale-105">
+                            <a href="https://play.google.com/store/apps/details?id=com.bytmos.client" class="transition-transform hover:scale-105">
                                 <img class="img-store-icon" src="{% static 'personal/img/res/playstore-icon.webp' %}" alt="Play Store">
                             </a>
-                            <a href="#" class="transition-transform hover:scale-105">
+                            <a href="https://apps.apple.com/us/app/bytmos/id6753813098" class="transition-transform hover:scale-105">
                                 <img class="img-store-icon" src="{% static 'personal/img/res/app-store-icon.webp' %}" alt="App Store">
                             </a>
                         </div>
