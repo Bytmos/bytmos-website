@@ -1,4 +1,4 @@
- :root {
+:root {
             --primary: #00709e;
             --primary-dark: #00709e; 
             --secondary: #7c3aed;
@@ -267,12 +267,10 @@ body.has-fixed-nav .about-hero {
             padding-top: clamp(2rem, 6vw, 3.5rem);
         }
 
-        /* On tablets and phones, left-align every hero caption. The slides use text-start /
-           text-center / text-end in the HTML; !important is needed because Bootstrap's
-           text-* utilities are !important too. */
-        @media (max-width: 768px) {
-            #partnerCarousel .carousel-caption { text-align: left !important; }
-        }
+        /* Left-align the hero captions at all screen sizes, except the one marked
+           text-center in the HTML (slide 2), which stays centred. !important is needed
+           because Bootstrap's text-* utilities are !important too. */
+        #partnerCarousel .carousel-caption:not(.text-center) { text-align: left !important; }
         /* ================= /Hero carousel ================= */
         
         .carousel-indicators button {
